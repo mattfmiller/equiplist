@@ -22,6 +22,9 @@ J. As an admin, I want to edit Instrument details when they change
 L. As an admin, I want to delete Reviews that are no longer relevant
 M. As an admin, I want to add an Instrument Type so an Instrument can be associated with it
 
+## Data relationship
+![alt tag](screenshots/data.png "Data Model")
+
 ## Setup/Installation Requirements
 
 * View program by cloning repository from https://github.com/mattfmiller/jadle
