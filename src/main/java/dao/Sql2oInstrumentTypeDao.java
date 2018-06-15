@@ -43,13 +43,13 @@ public class Sql2oInstrumentTypeDao implements InstrumentTypeDao{
         }
     }
 
-    @Override
-    public void update(int id, String name) {
-
-    }
-
-    @Override
-    public void deleteById(int id) {
-
-    }
+//    @Override
+//    public void update(int id, String name) {
+//
+//    }
+//
+//    @Override
+//    public void deleteById(int id) {
+//
+//    }
 }

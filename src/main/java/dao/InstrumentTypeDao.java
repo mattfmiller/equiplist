@@ -15,9 +15,9 @@ public interface InstrumentTypeDao {
 //    List<Instrument> getAllInstrumentsByInstrumentTypeId();
     InstrumentType findById(int id);
 
-    //UPDATE
-    void update(int id, String name);
-
-    //DELETE
-    void deleteById(int id);
+//    //UPDATE
+//    void update(int id, String name);
+//
+//    //DELETE
+//    void deleteById(int id);
 }

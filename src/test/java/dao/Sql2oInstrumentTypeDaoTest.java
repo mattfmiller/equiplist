@@ -58,11 +58,11 @@ public class Sql2oInstrumentTypeDaoTest {
         assertEquals(testInstrumentType.getName(), instrumentTypeDao.findById(testInstrumentType.getId()).getName());
     }
 
-    @Test
-    public void update() {
-    }
-
-    @Test
-    public void deleteById() {
-    }
+//    @Test
+//    public void update() {
+//    }
+//
+//    @Test
+//    public void deleteById() {
+//    }
 }
