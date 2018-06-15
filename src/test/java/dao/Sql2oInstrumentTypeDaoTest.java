@@ -53,6 +53,7 @@ public class Sql2oInstrumentTypeDaoTest {
 
     @Test
     public void findById() {
+
     }
 
     @Test

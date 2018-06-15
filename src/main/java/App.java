@@ -25,6 +25,10 @@ public class App {
             res.status(201);
             return gson.toJson(instrumentType);
         });
+
+        get("/instrumentTypes", "application/json", (req, res) -> {
+            return gson.toJson(instrumentTypeDao.getAll());
+        });
     }
 
 }
