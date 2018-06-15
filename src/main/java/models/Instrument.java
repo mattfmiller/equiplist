@@ -11,8 +11,9 @@ public class Instrument {
     private String imageUrl;
     private int instrumentTypeId;
     private Boolean current;
+    private Boolean wishlist;
 
-    public Instrument(String manufacturer, String model, String country, String serialNumber, String imageUrl, int instrumentTypeId, Boolean current) {
+    public Instrument(String manufacturer, String model, String country, String serialNumber, String imageUrl, int instrumentTypeId, Boolean current, Boolean wishlist) {
         this.manufacturer = manufacturer;
         this.model = model;
         this.country = country;
@@ -20,6 +21,7 @@ public class Instrument {
         this.imageUrl = imageUrl;
         this.instrumentTypeId = instrumentTypeId;
         this.current = current;
+        this.wishlist = wishlist;
     }
 
     public int getId() {
@@ -86,6 +88,14 @@ public class Instrument {
         this.current = current;
     }
 
+    public Boolean getWishlist() {
+        return wishlist;
+    }
+
+    public void setWishlist(Boolean wishlist) {
+        this.wishlist = wishlist;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -98,12 +108,13 @@ public class Instrument {
                 Objects.equals(country, that.country) &&
                 Objects.equals(serialNumber, that.serialNumber) &&
                 Objects.equals(imageUrl, that.imageUrl) &&
-                Objects.equals(current, that.current);
+                Objects.equals(current, that.current) &&
+                Objects.equals(wishlist, that.wishlist);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, manufacturer, model, country, serialNumber, imageUrl, instrumentTypeId, current);
+        return Objects.hash(id, manufacturer, model, country, serialNumber, imageUrl, instrumentTypeId, current, wishlist);
     }
 }
