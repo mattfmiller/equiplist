@@ -24,91 +24,91 @@ public class InstrumentTest {
     }
 
     @Test
-    public void getManufacturer_Gibson() {
+    public void getManufacturer_gibson() {
         Instrument testInstrument = setupNewInstrument();
         assertEquals("Gibson", testInstrument.getManufacturer());
     }
 
     @Test
-    public void setManufacturer() {
+    public void setManufacturer_fender() {
         Instrument testInstrument = setupNewInstrument();
         testInstrument.setManufacturer("Fender");
         assertEquals("Fender", testInstrument.getManufacturer());
     }
 
     @Test
-    public void getModel() {
+    public void getModel_lesPaulCustom() {
         Instrument testInstrument = setupNewInstrument();
         assertEquals("Les Paul Custom", testInstrument.getModel());
     }
 
     @Test
-    public void setModel() {
+    public void setModel_jazzmaster() {
         Instrument testInstrument = setupNewInstrument();
         testInstrument.setModel("Jazzmaster");
         assertEquals("Jazzmaster", testInstrument.getModel());
     }
 
     @Test
-    public void getCountry() {
+    public void getCountry_usa() {
         Instrument testInstrument = setupNewInstrument();
         assertEquals("USA", testInstrument.getCountry());
     }
 
     @Test
-    public void setCountry() {
+    public void setCountry_japan() {
         Instrument testInstrument = setupNewInstrument();
         testInstrument.setCountry("Japan");
         assertEquals("Japan", testInstrument.getCountry());
     }
 
     @Test
-    public void getSerialNumber() {
+    public void getSerialNumber_xxx() {
         Instrument testInstrument = setupNewInstrument();
         assertEquals("xxx", testInstrument.getSerialNumber());
     }
 
     @Test
-    public void setSerialNumber() {
+    public void setSerialNumber_zzz() {
         Instrument testInstrument = setupNewInstrument();
         testInstrument.setSerialNumber("zzz");
         assertEquals("zzz", testInstrument.getSerialNumber());
     }
 
     @Test
-    public void getImageUrl() {
+    public void getImageUrl_url() {
         Instrument testInstrument = setupNewInstrument();
         assertEquals("www.test.url", testInstrument.getImageUrl());
     }
 
     @Test
-    public void setImageUrl() {
+    public void setImageUrl_jpg() {
         Instrument testInstrument = setupNewInstrument();
         testInstrument.setImageUrl("www.test.jpg");
         assertEquals("www.test.jpg", testInstrument.getImageUrl());
     }
 
     @Test
-    public void getInstrumentTypeId() {
+    public void getInstrumentTypeId_1() {
         Instrument testInstrument = setupNewInstrument();
         assertEquals(1, testInstrument.getInstrumentTypeId());
     }
 
     @Test
-    public void setInstrumentTypeId() {
+    public void setInstrumentTypeId_2() {
         Instrument testInstrument = setupNewInstrument();
         testInstrument.setInstrumentTypeId(2);
         assertEquals(2, testInstrument.getInstrumentTypeId());
     }
 
     @Test
-    public void getCurrent() {
+    public void getCurrent_true() {
         Instrument testInstrument = setupNewInstrument();
         assertEquals(true, testInstrument.getCurrent());
     }
 
     @Test
-    public void setCurrent() {
+    public void setCurrent_false() {
         Instrument testInstrument = setupNewInstrument();
         testInstrument.setCurrent(false);
         assertEquals(false, testInstrument.getCurrent());
@@ -116,16 +116,15 @@ public class InstrumentTest {
 
 
     @Test
-    public void getWishlist() {
+    public void getWishlist_false() {
         Instrument testInstrument = setupNewInstrument();
         assertEquals(false, testInstrument.getWishlist());
     }
 
     @Test
-    public void setWishlist() {
+    public void setWishlist_true() {
         Instrument testInstrument = setupNewInstrument();
         testInstrument.setWishlist(true);
         assertEquals(true, testInstrument.getWishlist());
     }
-
 }
