@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class GuitarTest {
 
     public Guitar setupNewGuitar() {
-        return new Guitar ("Gibson", "Les Paul Custom", "USA", "xxx", "www.test.url", 1, true, false, 10.75, "Mahogany", "Lacquer", "Ebony", "Mahogany", "Set", "1960's Slim Taper", "Ebony", 12.0, 22, "Gibson Style", "Mother of Pearl Block", "Bone", 1.6875, 24.75, "Humbucker", "N/A", "Humbucker", "500K CTS", "500K CTS", "Sprangue .022 uf", "Grover Rotomatic", "Nickel Keystone", "Roller", "Bigsby B7", "3-way", "Bellhat", "5-Ply", "Volume, Tone", "Gibson Hardcase");
+        return new Guitar ("Gibson", "Les Paul Custom", "USA", "xxx", "www.test.url", 1, true, false, 10.75, "Mahogany", "Lacquer", "Ebony", "5-Ply", "Mahogany", "Set", "1960's Slim Taper", "Ebony", 12.0, 22, "Gibson Style", "Mother of Pearl Block", "Bone", 1.6875, 24.75, "Humbucker", "N/A", "Humbucker", "500K CTS", "500K CTS", "Sprangue .022 uf", "Grover Rotomatic", "Nickel Keystone", "Roller", "Bigsby B7", "3-way", "Bellhat", "5-Ply", "Volume, Tone", "Gibson Hardcase");
     }
 
     @Test
@@ -66,6 +66,19 @@ public class GuitarTest {
         Guitar testGuitar = setupNewGuitar();
         testGuitar.setColor("White");
         assertEquals("White", testGuitar.getColor());
+    }
+
+    @Test
+    public void getBinding_5Ply() {
+        Guitar testGuitar = setupNewGuitar();
+        assertEquals("5-Ply", testGuitar.getBinding());
+    }
+
+    @Test
+    public void setBinding_singlePly() {
+        Guitar testGuitar = setupNewGuitar();
+        testGuitar.setBinding("Single Ply");
+        assertEquals("Single Ply", testGuitar.getBinding());
     }
 
     @Test
