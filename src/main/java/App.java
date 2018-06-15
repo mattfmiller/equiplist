@@ -29,6 +29,11 @@ public class App {
         get("/instrumentTypes", "application/json", (req, res) -> {
             return gson.toJson(instrumentTypeDao.getAll());
         });
+
+        get("/instrumentTypes/:instrumentTypeId", "application/json", (req, res) -> {
+            int instrumentTypeId = Integer.parseInt(req.params("instrumentTypeId"));
+            return gson.toJson(instrumentTypeDao.findById(instrumentTypeId));
+        });
     }
 
 }

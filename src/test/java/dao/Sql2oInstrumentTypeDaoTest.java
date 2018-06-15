@@ -53,7 +53,9 @@ public class Sql2oInstrumentTypeDaoTest {
 
     @Test
     public void findById() {
-
+        InstrumentType testInstrumentType = setupNewInstrumentType();
+        InstrumentType testInstrumentType2 = setupNewInstrumentType2();
+        assertEquals(testInstrumentType.getName(), instrumentTypeDao.findById(testInstrumentType.getId()).getName());
     }
 
     @Test

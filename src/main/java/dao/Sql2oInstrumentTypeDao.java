@@ -1,5 +1,6 @@
 package dao;
 
+import models.Instrument;
 import models.InstrumentType;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -35,7 +36,11 @@ public class Sql2oInstrumentTypeDao implements InstrumentTypeDao{
 
     @Override
     public InstrumentType findById(int id) {
-        return null;
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM instrumentTypes WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(InstrumentType.class);
+        }
     }
 
     @Override
