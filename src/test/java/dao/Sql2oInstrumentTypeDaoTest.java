@@ -27,6 +27,12 @@ public class Sql2oInstrumentTypeDaoTest {
         return instrumentType;
     }
 
+    public InstrumentType setupNewInstrumentType2() {
+        InstrumentType instrumentType2 = new InstrumentType("Amp");
+        instrumentTypeDao.add(instrumentType2);
+        return instrumentType2;
+    }
+
     @After
     public void tearDown() throws Exception {
         conn.close();
@@ -39,7 +45,10 @@ public class Sql2oInstrumentTypeDaoTest {
     }
 
     @Test
-    public void getAll() {
+    public void getAll_2() {
+        InstrumentType testInstrumentType = setupNewInstrumentType();
+        InstrumentType testInstrumentType2 = setupNewInstrumentType2();
+        assertEquals(2, instrumentTypeDao.getAll().size());
     }
 
     @Test

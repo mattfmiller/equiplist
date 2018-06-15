@@ -27,7 +27,10 @@ public class Sql2oInstrumentTypeDao implements InstrumentTypeDao{
 
     @Override
     public List<InstrumentType> getAll() {
-        return null;
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM instrumentTypes")
+                    .executeAndFetch(InstrumentType.class);
+        }
     }
 
     @Override
