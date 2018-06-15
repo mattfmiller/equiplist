@@ -10,5 +10,8 @@ public interface InstrumentDao {
     Instrument findById(int id);
     List<Instrument> getAllInstrumentsByInstrumentTypeId();
 
+    //DELETE
+    void deleteById(int id);
+
 
 }
