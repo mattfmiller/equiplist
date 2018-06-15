@@ -18,6 +18,9 @@ public class InstrumentTest {
 
     @Test
     public void setId() {
+        Instrument testInstrument = setupNewInstrument();
+        testInstrument.setId(1);
+        assertEquals(1, testInstrument.getId());
     }
 
     @Test
