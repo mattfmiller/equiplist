@@ -12,7 +12,7 @@ public class Guitar extends Instrument {
     private String neckType;
     private String neckProfile;
     private String fretboardWood;
-    private Double fretboardRadius;
+    private double fretboardRadius;
     private int frets;
     private String fretMaterial;
     private String inlays;
