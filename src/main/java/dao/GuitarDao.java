@@ -12,12 +12,10 @@ public interface GuitarDao {
 
     //READ
 //    List<Guitar> getAll();
-    List<Guitar> getAllGuitarsByGuitarTypeId();
+//    List<Guitar> getAllGuitarsByGuitarTypeId();
 
     //UPDATE
 //    void update(int id, HashMap<String, Object> updatedContent);
-
-
 
 
 }
