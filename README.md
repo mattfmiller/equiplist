@@ -10,17 +10,20 @@ This application will allow users to add and update gear to a personal collectio
 
 #### User Story
 
-A. As a user, I want to see all Instruments in the collection
-B. As a user, I want to see one individual Instrument
-C. As a user, I want to see specific information such as the Instruments's make, model, finish, etc...
-D. As a user, I want to see which Instrument Type a single Instrument is associated with
-E. As a user, I want to see all Instruments of a specific Instrument Type (i.e. Guitar or Pedal) so I can browse through them
-F. As a user, I want to be able to leave a Note on an Instrument  
-G. As a user, I want to see all Notes for an Instrument
-I. As an admin, I want to be able to add a Restaurant to the database  
-J. As an admin, I want to edit Instrument details when they change
-L. As an admin, I want to delete Reviews that are no longer relevant
-M. As an admin, I want to add an Instrument Type so an Instrument can be associated with it
+A. As a user, I want to see all guitars in the collection (unfinished)
+B. As a user, I want to see one individual guitar (unfinished)
+C. As a user, I want to see specific information such as the guitar's make, model, finish, etc... (unfinished)
+D. As a user, I want to see which guitar type a single guitar is associated with (unfinished)
+E. As a user, I want to see all guitars of a specific guitar type (i.e. acoustic or lap steel) so I can browse through them (unfinished)
+F. As a user, I want to be able to leave a note on a guitar (unfinished)
+G. As a user, I want to see all notes for a guitar (unfinished)
+H. As a user, I want to see all instrument types (finished)
+I. As a user, I want to see all instruments of a specific instrument type (i.e. guitar or amp) so I can browse through them (finished)
+J. As an admin, I want to be able to add a guitar to the database (finished)
+K. As an admin, I want to edit guitar details when they change (unfinished)
+L. As an admin, I want to delete notes that are no longer relevant (unfinished)
+M. As an admin, I want to add a guitar type so a guitar can be associated with it (unfinished)
+N. As an admin, I want to add an Instrument Type so an Instrument can be associated with it (finished)
 
 ## Data relationship
 ![alt tag](screenshots/data.png "Data Model")
