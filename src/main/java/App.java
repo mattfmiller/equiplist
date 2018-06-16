@@ -23,6 +23,7 @@ public class App {
         guitarDao = new Sql2oGuitarDao(sql2o);
         conn = sql2o.open();
 
+        //post: add new instrumentType
         post("/instrumentTypes/new", "application/json", (req, res) -> {
             InstrumentType instrumentType = gson.fromJson(req.body(), InstrumentType.class);
             instrumentTypeDao.add(instrumentType);
@@ -30,15 +31,18 @@ public class App {
             return gson.toJson(instrumentType);
         });
 
+        //get: get all instrumentTypes
         get("/instrumentTypes", "application/json", (req, res) -> {
             return gson.toJson(instrumentTypeDao.getAll());
         });
 
+        //get: get instrumentType by id
         get("/instrumentTypes/:instrumentTypeId", "application/json", (req, res) -> {
             int instrumentTypeId = Integer.parseInt(req.params("instrumentTypeId"));
             return gson.toJson(instrumentTypeDao.findById(instrumentTypeId));
         });
 
+        //post: add new guitar instrument
         post("/guitars/new", "application/json", (req, res) -> {
             Guitar guitar = gson.fromJson(req.body(), Guitar.class);
             guitarDao.add(guitar);

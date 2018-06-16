@@ -42,14 +42,4 @@ public class Sql2oInstrumentTypeDao implements InstrumentTypeDao{
                     .executeAndFetchFirst(InstrumentType.class);
         }
     }
-
-//    @Override
-//    public void update(int id, String name) {
-//
-//    }
-//
-//    @Override
-//    public void deleteById(int id) {
-//
-//    }
 }

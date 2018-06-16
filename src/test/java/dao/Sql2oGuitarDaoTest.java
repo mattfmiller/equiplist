@@ -49,8 +49,4 @@ public class Sql2oGuitarDaoTest {
         Guitar testGuitar = setupNewGuitar();
         assertEquals("Ebony", testGuitar.getColor());
     }
-
-//    @Test
-//    public void getAllGuitarsByGuitarTypeId() {
-//    }
 }

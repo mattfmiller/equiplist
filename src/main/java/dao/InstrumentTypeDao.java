@@ -12,8 +12,8 @@ public interface InstrumentTypeDao {
 
     //READ
     List<InstrumentType> getAll();
-//    List<Instrument> getAllInstrumentsByInstrumentTypeId();
     InstrumentType findById(int id);
+//    List<Instrument> getAllInstrumentsByInstrumentTypeId();
 
 //    //UPDATE
 //    void update(int id, String name);
