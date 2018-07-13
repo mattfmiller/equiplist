@@ -23,7 +23,7 @@ public class Sql2oGuitarDao implements GuitarDao{
                     .executeUpdate()
                     .getKey();
             guitar.setId(id);
-            con.createQuery(guitarSql, true)
+            con.createQuery(guitarSql)
                     .bind(guitar)
                     .executeUpdate();
         } catch (Sql2oException ex) {
@@ -34,7 +34,7 @@ public class Sql2oGuitarDao implements GuitarDao{
     @Override
     public List<Guitar> getAllGuitars() {
         try(Connection con = sql2o.open()){
-            List<Guitar> allGuitarsWithoutNull = con.createQuery("SELECT * FROM guitars")
+            List<Guitar> allGuitarsWithoutNull = con.createQuery("SELECT * FROM guitars LEFT JOIN instruments ON guitars.id = instruments.id")
                     .executeAndFetch(Guitar.class);
             allGuitarsWithoutNull.removeAll(Collections.singleton(null));
             return allGuitarsWithoutNull;

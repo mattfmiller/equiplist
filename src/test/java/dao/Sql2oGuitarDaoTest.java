@@ -38,6 +38,8 @@ public class Sql2oGuitarDaoTest {
         assertEquals(1, testGuitar.getId());
     }
 
+
+
     @Test
     public void addGuitarSetsManufacturer_gibson() {
         Guitar testGuitar = setupNewGuitar();
