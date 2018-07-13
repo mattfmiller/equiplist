@@ -32,12 +32,23 @@ public class Sql2oGuitarDao implements GuitarDao{
     }
 
     @Override
-    public List<Guitar> getAll() {
+    public List<Guitar> getAllGuitars() {
         try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM guitars WHERE color = :collectionBoolean")
-                    .addParameter("collectionBoolean", "Ebony")
+            List<Guitar> allGuitarsWithoutNull = con.createQuery("SELECT * FROM guitars")
                     .executeAndFetch(Guitar.class);
-//            allGuitarsWithoutNull.removeAll(Collections.singleton(null));
+            allGuitarsWithoutNull.removeAll(Collections.singleton(null));
+            return allGuitarsWithoutNull;
+        }
+    }
+
+    @Override
+    public List<Guitar> getAllGuitarsInCollection() {
+        try(Connection con = sql2o.open()){
+            List<Guitar> allGuitarsWithoutNull = con.createQuery("SELECT * FROM guitars JOIN instruments ON guitars.id = instruments.id WHERE wishlist = :collectionBoolean")
+                    .addParameter("collectionBoolean", false)
+                    .executeAndFetch(Guitar.class);
+            allGuitarsWithoutNull.removeAll(Collections.singleton(null));
+            return allGuitarsWithoutNull;
         }
     }
 }

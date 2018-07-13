@@ -51,9 +51,17 @@ public class Sql2oGuitarDaoTest {
     }
 
     @Test
-    public void getAll() {
+    public void getAllGuitars_2() {
         Guitar testGuitar = setupNewGuitar();
         Guitar testGuitar2 = setupNewGuitar();
-        assertEquals(2, guitarDao.getAll().size());
+        assertEquals(2, guitarDao.getAllGuitars().size());
+    }
+
+    @Test
+    public void getAllGuitarsInCollection_1() {
+        Guitar testGuitar = setupNewGuitar();
+        Guitar testGuitar2 = setupNewGuitar();
+        testGuitar2.setWishlist(true);
+        assertEquals(1, guitarDao.getAllGuitarsInCollection().size());
     }
 }
