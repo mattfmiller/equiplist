@@ -1,6 +1,7 @@
 package dao;
 
 import models.Guitar;
+import models.Instrument;
 
 import java.util.HashMap;
 import java.util.List;

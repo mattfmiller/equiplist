@@ -1,11 +1,14 @@
 package dao;
 
 import models.Guitar;
+import models.Instrument;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 

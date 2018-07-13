@@ -1,6 +1,7 @@
 package dao;
 
 import models.Guitar;
+import models.Instrument;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
