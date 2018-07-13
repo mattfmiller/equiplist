@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS instruments (
 );
 
 CREATE TABLE IF NOT EXISTS guitars (
+ guitarId int,
  weight Decimal,
  bodyWood VARCHAR,
  finish VARCHAR,
@@ -49,7 +50,8 @@ CREATE TABLE IF NOT EXISTS guitars (
  pickguard VARCHAR,
  controls VARCHAR,
  guitarCase VARCHAR,
-) INHERITS (instruments);
+ FOREIGN KEY (guitarId) REFERENCES instruments (id)
+);
 
 CREATE TABLE IF NOT EXISTS notes (
  id int PRIMARY KEY auto_increment,
