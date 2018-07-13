@@ -17,13 +17,10 @@ D. As a user, I want to see which guitar type a single guitar is associated with
 E. As a user, I want to see all guitars of a specific guitar type (i.e. acoustic or lap steel) so I can browse through them (unfinished)<br>
 F. As a user, I want to be able to leave a note on a guitar (unfinished)<br>
 G. As a user, I want to see all notes for a guitar (unfinished)<br>
-H. As a user, I want to see all instrument types (finished)<br>
-I. As a user, I want to see all instruments of a specific instrument type (i.e. guitar or amp) so I can browse through them (finished)<br>
 J. As an admin, I want to be able to add a guitar to the database (finished)<br>
 K. As an admin, I want to edit guitar details when they change (unfinished)<br>
 L. As an admin, I want to delete notes that are no longer relevant (unfinished)<br>
 M. As an admin, I want to add a guitar type so a guitar can be associated with it (unfinished)<br>
-N. As an admin, I want to add an Instrument Type so an Instrument can be associated with it (finished)<br>Â
 
 ## Data relationship
 ![alt tag](screenshots/data.png "Data Model")
@@ -34,11 +31,8 @@ N. As an admin, I want to add an Instrument Type so an Instrument can be associa
 * Open project in IDE such as IntelliJ IDEA
 * Run App.java to compile the program
 * Use a program such as postman to create API requests to localhost:4567
-  * Add an instrument type `post:` `/instrumentTypes/new`
-    * As JSON of the format: <br>
-    `"name": "{user_input}"`
-  * Get all instrument types: `get:` `/instrumentTypes`
-  * Get specific instrument type: `get:` `/instrumentTypes/{instrumentType_id}`
+  * Get all guitars: `get:` `/guitars`
+  * Get specific guitar: `get:` `/guitars/{guitar_id}`
   * Add a guitar: `post:` `/guitars/new`
     * As JSON of the format: <br>
     `"manufacturer": "{user_input}"`<br>
