@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS instruments (
  imageUrl VARCHAR,
  instrumentTypeId int,
  current VARCHAR,
- wishlist VARCHAR
+ wishlist VARCHAR,
 );
 
 CREATE TABLE IF NOT EXISTS guitars (
