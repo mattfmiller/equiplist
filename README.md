@@ -10,17 +10,26 @@ This application will allow users to add and update gear to a personal collectio
 
 #### User Story
 
-A. As a user, I want to see all guitars in the collection (unfinished) <br>
-B. As a user, I want to see one individual guitar (unfinished)<br>
-C. As a user, I want to see specific information such as the guitar's make, model, finish, etc... (unfinished)<br>
-D. As a user, I want to see which guitar type a single guitar is associated with (unfinished)<br>
-E. As a user, I want to see all guitars of a specific guitar type (i.e. acoustic or lap steel) so I can browse through them (unfinished)<br>
-F. As a user, I want to be able to leave a note on a guitar (unfinished)<br>
-G. As a user, I want to see all notes for a guitar (unfinished)<br>
-J. As an admin, I want to be able to add a guitar to the database (finished)<br>
-K. As an admin, I want to edit guitar details when they change (unfinished)<br>
-L. As an admin, I want to delete notes that are no longer relevant (unfinished)<br>
-M. As an admin, I want to add a guitar type so a guitar can be associated with it (unfinished)<br>
+A. As a user, I want to see all instruments in the collection <br>
+B. As a user, I want to see all guitars in the collection <br>
+C. As a user, I want to see all amps in the collection <br>
+D. As a user, I want to see all pedals in the collection <br>
+E. As a user, I want to see specific information about a single guitar<br>
+F. As a user, I want to see specific information about a single amp<br>
+G. As a user, I want to see specific information about a single pedal<br>
+H. As a user, I want to be able to add a guitar to the database<br>
+I. As a user, I want to be able to add an amp to the database<br>
+J. As a user, I want to be able to add a pedal to the database<br>
+K. As a user, I want to see which guitar type(s) a single guitar is associated with<br>
+L. As a user, I want to be able to add a guitar type to a guitar<br>
+M. As a user, I want to see all guitars of a specific guitar type<br>
+N. As a user, I want to be able to add a note on an instrument<br>
+O. As a user, I want to see all notes for an instrument<br>
+P. As a user, I want to edit instrument details when they change<br>
+Q. As a user, I want to delete instruments when they are no longer in my collection or wantlist.
+R. As a user, I want to delete notes that are no longer relevant<br>
+S. As a user, I want to delete a guitar type association in case of error<br>
+
 
 ## Data relationship
 ![alt tag](screenshots/data.png "Data Model")
