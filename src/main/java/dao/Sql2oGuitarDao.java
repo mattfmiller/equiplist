@@ -5,6 +5,9 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
+import java.util.List;
+import java.util.Collections;
+
 public class Sql2oGuitarDao implements GuitarDao{
 
     private final Sql2o sql2o;
@@ -22,6 +25,16 @@ public class Sql2oGuitarDao implements GuitarDao{
             guitar.setId(id);
         } catch (Sql2oException ex) {
             System.out.println(ex);
+        }
+    }
+
+    @Override
+    public List<Guitar> getAll() {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM guitars")
+//                    .addParameter("collectionBoolean", false)
+                    .executeAndFetch(Guitar.class);
+//            allGuitarsWithoutNull.removeAll(Collections.singleton(null));
         }
     }
 }

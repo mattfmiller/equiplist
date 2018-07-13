@@ -11,7 +11,7 @@ public interface GuitarDao {
     void add(Guitar guitar);
 
 //    //READ
-//    List<Guitar> getAll();
+    List<Guitar> getAll();
 //    List<Guitar> getAllGuitarsByGuitarTypeId();
 //
 //    //UPDATE
