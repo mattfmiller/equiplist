@@ -41,7 +41,11 @@ public class Sql2oGuitarDaoTest {
         assertEquals(1, testGuitar.getId());
     }
 
-
+    @Test
+    public void addGuitarSetsWishlist_false() {
+        Guitar testGuitar = setupNewGuitar();
+        assertEquals(false, testGuitar.getWishlist());
+    }
 
     @Test
     public void addGuitarSetsManufacturer_gibson() {
