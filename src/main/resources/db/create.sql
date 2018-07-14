@@ -12,7 +12,6 @@ CREATE TABLE IF NOT EXISTS instruments (
  country VARCHAR,
  serialNumber VARCHAR,
  imageUrl VARCHAR,
- instrumentTypeId int,
  current VARCHAR,
  wishlist VARCHAR,
 );

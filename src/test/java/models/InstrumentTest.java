@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class InstrumentTest {
 
     public Instrument setupNewInstrument() {
-        return new Instrument ("Gibson", "Les Paul Custom", "USA", "xxx", "www.test.url", 1, true, false);
+        return new Instrument ("Gibson", "Les Paul Custom", "USA", "xxx", "www.test.url", true, false);
     }
 
     @Test
@@ -86,19 +86,6 @@ public class InstrumentTest {
         Instrument testInstrument = setupNewInstrument();
         testInstrument.setImageUrl("www.test.jpg");
         assertEquals("www.test.jpg", testInstrument.getImageUrl());
-    }
-
-    @Test
-    public void getInstrumentTypeId_1() {
-        Instrument testInstrument = setupNewInstrument();
-        assertEquals(1, testInstrument.getInstrumentTypeId());
-    }
-
-    @Test
-    public void setInstrumentTypeId_2() {
-        Instrument testInstrument = setupNewInstrument();
-        testInstrument.setInstrumentTypeId(2);
-        assertEquals(2, testInstrument.getInstrumentTypeId());
     }
 
     @Test
