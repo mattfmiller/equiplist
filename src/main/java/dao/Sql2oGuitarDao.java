@@ -16,13 +16,13 @@ public class Sql2oGuitarDao implements GuitarDao{
     @Override
     public void add(Guitar guitar) {
         String instrumentSql = "INSERT INTO instruments (manufacturer, model, country, serialNumber, imageUrl, current, wishlist) VALUES (:manufacturer, :model, :country, :serialNumber, :imageUrl, :current, :wishlist)";
-        String guitarSql = "INSERT INTO guitars (weight, bodyWood, finish, color, binding, neckWood, neckType, neckProfile, fretboardWood, fretboardRadius, frets, fretMaterial, inlays, nutMaterial, nutWidth, scaleLength, neckPickup, middlePickup, bridgePickup, volumePots, tonePots, capacitor, tuners, tunerButtons, bridge, tailpiece, guitarSwitch, knobs, pickguard, controls, guitarCase) VALUES (:weight, :bodyWood,  :finish, :color, :binding, :neckWood, :neckType, :neckProfile, :fretboardWood, :fretboardRadius, :frets, :fretMaterial, :inlays, :nutMaterial, :nutWidth, :scaleLength, :neckPickup, :middlePickup, :bridgePickup, :volumePots, :tonePots, :capacitor, :tuners, :tunerButtons, :bridge, :tailpiece, :guitarSwitch, :knobs, :pickguard, :controls, :guitarCase)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(instrumentSql, true)
                     .bind(guitar)
                     .executeUpdate()
                     .getKey();
             guitar.setId(id);
+            String guitarSql = "INSERT INTO guitars (id, weight, bodyWood, finish, color, binding, neckWood, neckType, neckProfile, fretboardWood, fretboardRadius, frets, fretMaterial, inlays, nutMaterial, nutWidth, scaleLength, neckPickup, middlePickup, bridgePickup, volumePots, tonePots, capacitor, tuners, tunerButtons, bridge, tailpiece, guitarSwitch, knobs, pickguard, controls, guitarCase) VALUES (:id, :weight, :bodyWood,  :finish, :color, :binding, :neckWood, :neckType, :neckProfile, :fretboardWood, :fretboardRadius, :frets, :fretMaterial, :inlays, :nutMaterial, :nutWidth, :scaleLength, :neckPickup, :middlePickup, :bridgePickup, :volumePots, :tonePots, :capacitor, :tuners, :tunerButtons, :bridge, :tailpiece, :guitarSwitch, :knobs, :pickguard, :controls, :guitarCase)";
             con.createQuery(guitarSql)
                     .bind(guitar)
                     .executeUpdate();
@@ -34,7 +34,7 @@ public class Sql2oGuitarDao implements GuitarDao{
     @Override
     public List<Guitar> getAllGuitars() {
         try(Connection con = sql2o.open()){
-            List<Guitar> allGuitarsWithoutNull = con.createQuery("SELECT * FROM guitars LEFT JOIN instruments ON guitars.id = instruments.id")
+            List<Guitar> allGuitarsWithoutNull = con.createQuery("SELECT * FROM guitars JOIN instruments ON guitars.id = instruments.id")
                     .executeAndFetch(Guitar.class);
             allGuitarsWithoutNull.removeAll(Collections.singleton(null));
             return allGuitarsWithoutNull;
@@ -44,7 +44,7 @@ public class Sql2oGuitarDao implements GuitarDao{
     @Override
     public List<Guitar> getAllGuitarsInCollection() {
         try(Connection con = sql2o.open()){
-            List<Guitar> allGuitarsWithoutNull = con.createQuery("SELECT * FROM instruments RIGHT JOIN guitars ON instruments.id = guitars.id AND instruments.wishlist = :collectionBoolean")
+            List<Guitar> allGuitarsWithoutNull = con.createQuery("SELECT * FROM instruments JOIN guitars ON instruments.id = guitars.id AND instruments.wishlist = :collectionBoolean")
                     .addParameter("collectionBoolean", false)
                     .executeAndFetch(Guitar.class);
             allGuitarsWithoutNull.removeAll(Collections.singleton(null));
