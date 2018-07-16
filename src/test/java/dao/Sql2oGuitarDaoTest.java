@@ -69,8 +69,9 @@ public class Sql2oGuitarDaoTest {
     @Test
     public void getAllGuitarsInCollection_1() {
         Guitar testGuitar = setupNewGuitar();
-        Guitar testGuitar2 = setupNewGuitar();
+        Guitar testGuitar2 = new Guitar ("Gibson", "Les Paul Custom", "USA", "xxx", "www.test.url", true, false, 10.75, "Mahogany", "Lacquer", "Ebony", "5-Ply", "Mahogany", "Set", "1960's Slim Taper", "Ebony", 12.0, 22, "Gibson Style", "Mother of Pearl Block", "Bone", 1.6875, 24.75, "Humbucker", "N/A", "Humbucker", "500K CTS", "500K CTS", "Sprangue .022 uf", "Grover Rotomatic", "Nickel Keystone", "Roller", "Bigsby B7", "3-way", "Bellhat", "5-Ply", "Volume, Tone", "Gibson Hardcase");
         testGuitar2.setWishlist(true);
+        guitarDao.add(testGuitar2);
         assertEquals(1, guitarDao.getAllGuitarsInCollection().size());
     }
 }
