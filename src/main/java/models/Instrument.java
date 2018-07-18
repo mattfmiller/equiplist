@@ -8,18 +8,26 @@ public class Instrument {
     private String model;
     private String country;
     private String serialNumber;
+    private int year;
+    private double weight;
     private String imageUrl;
     private Boolean current;
     private Boolean wishlist;
+    private double paid;
+    private double sold;
 
-    public Instrument(String manufacturer, String model, String country, String serialNumber, String imageUrl, Boolean current, Boolean wishlist) {
+    public Instrument(String manufacturer, String model, String country, String serialNumber, int year, double weight, String imageUrl, Boolean current, Boolean wishlist, double paid, double sold) {
         this.manufacturer = manufacturer;
         this.model = model;
         this.country = country;
         this.serialNumber = serialNumber;
+        this.year = year;
+        this.weight = weight;
         this.imageUrl = imageUrl;
         this.current = current;
         this.wishlist = wishlist;
+        this.paid = paid;
+        this.sold = sold;
     }
 
     public int getId() {
@@ -86,6 +94,38 @@ public class Instrument {
         this.wishlist = wishlist;
     }
 
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public double getPaid() {
+        return paid;
+    }
+
+    public void setPaid(double paid) {
+        this.paid = paid;
+    }
+
+    public double getSold() {
+        return sold;
+    }
+
+    public void setSold(double sold) {
+        this.sold = sold;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -96,14 +136,18 @@ public class Instrument {
                 Objects.equals(model, that.model) &&
                 Objects.equals(country, that.country) &&
                 Objects.equals(serialNumber, that.serialNumber) &&
+                Objects.equals(year, that.year) &&
+                Objects.equals(weight, that.weight) &&
                 Objects.equals(imageUrl, that.imageUrl) &&
                 Objects.equals(current, that.current) &&
-                Objects.equals(wishlist, that.wishlist);
+                Objects.equals(wishlist, that.wishlist) &&
+                Objects.equals(paid, that.paid) &&
+                Objects.equals(sold, that.sold);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, manufacturer, model, country, serialNumber, imageUrl, current, wishlist);
+        return Objects.hash(id, manufacturer, model, country, serialNumber, year, weight, imageUrl, current, wishlist, paid, sold);
     }
 }

@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class InstrumentTest {
 
     public Instrument setupNewInstrument() {
-        return new Instrument ("Gibson", "Les Paul Custom", "USA", "xxx", "www.test.url", true, false);
+        return new Instrument ("Gibson", "Les Paul Custom", "USA", "xxx", 1999, 10.9,  "www.test.url", true, false, 1500, 0);
     }
 
     @Test
@@ -75,6 +75,21 @@ public class InstrumentTest {
         assertEquals("zzz", testInstrument.getSerialNumber());
     }
 
+
+    @Test
+    public void setYear_1998() {
+        Instrument testInstrument = setupNewInstrument();
+        testInstrument.setYear(1998);
+        assertEquals(1998, testInstrument.getYear());
+    }
+
+    @Test
+    public void setWeight_108() {
+        Instrument testInstrument = setupNewInstrument();
+        testInstrument.setWeight(10.80);
+        assertEquals(10.80, testInstrument.getWeight(), 0.01);
+    }
+
     @Test
     public void getImageUrl_url() {
         Instrument testInstrument = setupNewInstrument();
@@ -113,5 +128,19 @@ public class InstrumentTest {
         Instrument testInstrument = setupNewInstrument();
         testInstrument.setWishlist(true);
         assertEquals(true, testInstrument.getWishlist());
+    }
+
+    @Test
+    public void setPaid_1400() {
+        Instrument testInstrument = setupNewInstrument();
+        testInstrument.setPaid(1400);
+        assertEquals(1400, testInstrument.getPaid(), 0.01);
+    }
+
+    @Test
+    public void setSold_1200() {
+        Instrument testInstrument = setupNewInstrument();
+        testInstrument.setSold(1200);
+        assertEquals(1200, testInstrument.getSold(), 0.01);
     }
 }

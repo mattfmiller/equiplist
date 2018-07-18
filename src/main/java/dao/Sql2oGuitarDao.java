@@ -15,14 +15,14 @@ public class Sql2oGuitarDao implements GuitarDao{
 
     @Override
     public void add(Guitar guitar) {
-        String instrumentSql = "INSERT INTO instruments (manufacturer, model, country, serialNumber, imageUrl, current, wishlist) VALUES (:manufacturer, :model, :country, :serialNumber, :imageUrl, :current, :wishlist)";
+        String instrumentSql = "INSERT INTO instruments (manufacturer, model, country, serialNumber, year, weight, imageUrl, current, wishlist, paid, sold) VALUES (:manufacturer, :model, :country, :serialNumber, :year, :weight :imageUrl, :current, :wishlist, :paid, :sold)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(instrumentSql, true)
                     .bind(guitar)
                     .executeUpdate()
                     .getKey();
             guitar.setId(id);
-            String guitarSql = "INSERT INTO guitars (id, weight, bodyWood, finish, color, binding, neckWood, neckType, neckProfile, fretboardWood, fretboardRadius, frets, fretMaterial, inlays, nutMaterial, nutWidth, scaleLength, neckPickup, middlePickup, bridgePickup, volumePots, tonePots, capacitor, tuners, tunerButtons, bridge, tailpiece, guitarSwitch, knobs, pickguard, controls, guitarCase) VALUES (:id, :weight, :bodyWood,  :finish, :color, :binding, :neckWood, :neckType, :neckProfile, :fretboardWood, :fretboardRadius, :frets, :fretMaterial, :inlays, :nutMaterial, :nutWidth, :scaleLength, :neckPickup, :middlePickup, :bridgePickup, :volumePots, :tonePots, :capacitor, :tuners, :tunerButtons, :bridge, :tailpiece, :guitarSwitch, :knobs, :pickguard, :controls, :guitarCase)";
+            String guitarSql = "INSERT INTO guitars (id, bodyWood, finish, color, binding, neckWood, neckType, neckProfile, fretboardWood, fretboardRadius, frets, fretMaterial, inlays, nutMaterial, nutWidth, scaleLength, neckPickup, middlePickup, bridgePickup, volumePots, tonePots, capacitor, tuners, tunerButtons, bridge, tailpiece, guitarSwitch, knobs, pickguard, controls, guitarCase) VALUES (:id, :bodyWood,  :finish, :color, :binding, :neckWood, :neckType, :neckProfile, :fretboardWood, :fretboardRadius, :frets, :fretMaterial, :inlays, :nutMaterial, :nutWidth, :scaleLength, :neckPickup, :middlePickup, :bridgePickup, :volumePots, :tonePots, :capacitor, :tuners, :tunerButtons, :bridge, :tailpiece, :guitarSwitch, :knobs, :pickguard, :controls, :guitarCase)";
             con.createQuery(guitarSql)
                     .bind(guitar)
                     .executeUpdate();
