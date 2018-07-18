@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS guitars (
 
 CREATE TABLE IF NOT EXISTS amps (
  id int,
+ instrument VARCHAR,
  type VARCHAR,
  power int,
  cabinetWood VARCHAR,
