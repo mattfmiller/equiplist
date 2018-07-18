@@ -25,12 +25,12 @@ public class Amp extends Instrument {
     private String jewelLight;
     private String controlPanel;
     private String logo;
-    private String tiltLegs;
+    private Boolean tiltLegs;
     private String feet;
     private String controls;
     private String cover;
 
-    public Amp(String manufacturer, String model, String country, String serialNumber, int year, Double weight, String imageUrl, Boolean current, Boolean wishlist, double paid, double sold, String instrument, String type, int power, String cabinetWood, String finish, String grillCloth, private int width, int depth, int height, String electronics, String speakers, String powerTubes, String preAmpTubes, String rectifierTube, Boolean reverb, Boolean tremolo, String externalSpeaker, String handle, String knobs, String jewelLight, String controlPanel, String logo, String tiltLegs, String feet, String controls, String cover) {
+    public Amp(String manufacturer, String model, String country, String serialNumber, int year, Double weight, String imageUrl, Boolean current, Boolean wishlist, double paid, double sold, String instrument, String type, int power, String cabinetWood, String finish, String grillCloth, int width, int depth, int height, String electronics, String speakers, String powerTubes, String preAmpTubes, String rectifierTube, Boolean reverb, Boolean tremolo, String externalSpeaker, String handle, String knobs, String jewelLight, String controlPanel, String logo, Boolean tiltLegs, String feet, String controls, String cover) {
         super(manufacturer, model, country, serialNumber, year, weight, imageUrl, current, wishlist, paid, sold);
         this.instrument = instrument;
         this.type = type;
@@ -236,11 +236,11 @@ public class Amp extends Instrument {
         this.logo = logo;
     }
 
-    public String getTiltLegs() {
+    public Boolean getTiltLegs() {
         return tiltLegs;
     }
 
-    public void setTiltLegs(String tiltLegs) {
+    public void setTiltLegs(Boolean tiltLegs) {
         this.tiltLegs = tiltLegs;
     }
 
