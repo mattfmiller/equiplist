@@ -14,8 +14,8 @@ CREATE TABLE IF NOT EXISTS instruments (
  year int,
  weight Decimal,
  imageUrl VARCHAR,
- current VARCHAR,
- wishlist VARCHAR,
+ current BOOL,
+ wishlist BOOL,
  paid Decimal,
  sold Decimal
 );
@@ -71,18 +71,18 @@ CREATE TABLE IF NOT EXISTS amps (
  powerTubes VARCHAR,
  preAmpTubes VARCHAR,
  rectifierTube VARCHAR,
- reverb VARCHAR,
- tremolo VARCHAR,
+ reverb BOOL,
+ tremolo BOOL,
  externalSpeaker VARCHAR,
  handle VARCHAR,
  knobs VARCHAR,
  jewelLight VARCHAR,
  controlPanel VARCHAR,
  logo VARCHAR,
- tiltLegs VARCHAR,
+ tiltLegs BOOL,
  feet VARCHAR,
  controls VARCHAR,
- cover VARCHAR
+ cover VARCHAR,
  FOREIGN KEY (id) REFERENCES instruments (id)
 );
 
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS pedals (
  depth Decimal,
  height Decimal,
  electronics VARCHAR,
- trueBypass VARCHAR,
+ trueBypass BOOL,
  inputImpedance int,
  outputImpedance int,
  currentDraw VARCHAR,
