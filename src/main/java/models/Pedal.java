@@ -128,5 +128,29 @@ public class Pedal extends Instrument {
         this.features = features;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Pedal pedal = (Pedal) o;
+        return Double.compare(pedal.width, width) == 0 &&
+                Double.compare(pedal.depth, depth) == 0 &&
+                Double.compare(pedal.height, height) == 0 &&
+                inputImpedance == pedal.inputImpedance &&
+                outputImpedance == pedal.outputImpedance &&
+                Objects.equals(type, pedal.type) &&
+                Objects.equals(power, pedal.power) &&
+                Objects.equals(electronics, pedal.electronics) &&
+                Objects.equals(trueBypass, pedal.trueBypass) &&
+                Objects.equals(currentDraw, pedal.currentDraw) &&
+                Objects.equals(controls, pedal.controls) &&
+                Objects.equals(features, pedal.features);
+    }
 
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), type, power, width, depth, height, electronics, trueBypass, inputImpedance, outputImpedance, currentDraw, controls, features);
+    }
 }

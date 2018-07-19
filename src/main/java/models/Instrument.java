@@ -132,17 +132,17 @@ public class Instrument {
         if (o == null || getClass() != o.getClass()) return false;
         Instrument that = (Instrument) o;
         return id == that.id &&
+                year == that.year &&
+                Double.compare(that.weight, weight) == 0 &&
+                Double.compare(that.paid, paid) == 0 &&
+                Double.compare(that.sold, sold) == 0 &&
                 Objects.equals(manufacturer, that.manufacturer) &&
                 Objects.equals(model, that.model) &&
                 Objects.equals(country, that.country) &&
                 Objects.equals(serialNumber, that.serialNumber) &&
-                Objects.equals(year, that.year) &&
-                Objects.equals(weight, that.weight) &&
                 Objects.equals(imageUrl, that.imageUrl) &&
                 Objects.equals(current, that.current) &&
-                Objects.equals(wishlist, that.wishlist) &&
-                Objects.equals(paid, that.paid) &&
-                Objects.equals(sold, that.sold);
+                Objects.equals(wishlist, that.wishlist);
     }
 
     @Override

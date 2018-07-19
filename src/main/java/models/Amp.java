@@ -268,4 +268,43 @@ public class Amp extends Instrument {
         this.cover = cover;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Amp amp = (Amp) o;
+        return power == amp.power &&
+                width == amp.width &&
+                depth == amp.depth &&
+                height == amp.height &&
+                Objects.equals(instrument, amp.instrument) &&
+                Objects.equals(type, amp.type) &&
+                Objects.equals(cabinetWood, amp.cabinetWood) &&
+                Objects.equals(finish, amp.finish) &&
+                Objects.equals(grillCloth, amp.grillCloth) &&
+                Objects.equals(electronics, amp.electronics) &&
+                Objects.equals(speakers, amp.speakers) &&
+                Objects.equals(powerTubes, amp.powerTubes) &&
+                Objects.equals(preAmpTubes, amp.preAmpTubes) &&
+                Objects.equals(rectifierTube, amp.rectifierTube) &&
+                Objects.equals(reverb, amp.reverb) &&
+                Objects.equals(tremolo, amp.tremolo) &&
+                Objects.equals(externalSpeaker, amp.externalSpeaker) &&
+                Objects.equals(handle, amp.handle) &&
+                Objects.equals(knobs, amp.knobs) &&
+                Objects.equals(jewelLight, amp.jewelLight) &&
+                Objects.equals(controlPanel, amp.controlPanel) &&
+                Objects.equals(logo, amp.logo) &&
+                Objects.equals(tiltLegs, amp.tiltLegs) &&
+                Objects.equals(feet, amp.feet) &&
+                Objects.equals(controls, amp.controls) &&
+                Objects.equals(cover, amp.cover);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), instrument, type, power, cabinetWood, finish, grillCloth, width, depth, height, electronics, speakers, powerTubes, preAmpTubes, rectifierTube, reverb, tremolo, externalSpeaker, handle, knobs, jewelLight, controlPanel, logo, tiltLegs, feet, controls, cover);
+    }
 }

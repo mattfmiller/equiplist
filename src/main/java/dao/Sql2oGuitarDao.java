@@ -15,7 +15,7 @@ public class Sql2oGuitarDao implements GuitarDao{
 
     @Override
     public void add(Guitar guitar) {
-        String instrumentSql = "INSERT INTO instruments (manufacturer, model, country, serialNumber, year, weight, imageUrl, current, wishlist, paid, sold) VALUES (:manufacturer, :model, :country, :serialNumber, :year, :weight :imageUrl, :current, :wishlist, :paid, :sold)";
+        String instrumentSql = "INSERT INTO instruments (manufacturer, model, country, serialNumber, year, weight, imageUrl, current, wishlist, paid, sold) VALUES (:manufacturer, :model, :country, :serialNumber, :year, :weight, :imageUrl, :current, :wishlist, :paid, :sold)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(instrumentSql, true)
                     .bind(guitar)
@@ -29,7 +29,7 @@ public class Sql2oGuitarDao implements GuitarDao{
         } catch (Sql2oException ex) {
             System.out.println(ex);
         }
-git status    }
+    }
 
     @Override
     public List<Guitar> getAllGuitars() {
