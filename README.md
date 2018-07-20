@@ -10,20 +10,26 @@ This application will allow users to add and update gear to a personal collectio
 
 #### User Story
 
-A. As a user, I want to see all guitars in the collection (unfinished)
-B. As a user, I want to see one individual guitar (unfinished)
-C. As a user, I want to see specific information such as the guitar's make, model, finish, etc... (unfinished)
-D. As a user, I want to see which guitar type a single guitar is associated with (unfinished)
-E. As a user, I want to see all guitars of a specific guitar type (i.e. acoustic or lap steel) so I can browse through them (unfinished)
-F. As a user, I want to be able to leave a note on a guitar (unfinished)
-G. As a user, I want to see all notes for a guitar (unfinished)
-H. As a user, I want to see all instrument types (finished)
-I. As a user, I want to see all instruments of a specific instrument type (i.e. guitar or amp) so I can browse through them (finished)
-J. As an admin, I want to be able to add a guitar to the database (finished)
-K. As an admin, I want to edit guitar details when they change (unfinished)
-L. As an admin, I want to delete notes that are no longer relevant (unfinished)
-M. As an admin, I want to add a guitar type so a guitar can be associated with it (unfinished)
-N. As an admin, I want to add an Instrument Type so an Instrument can be associated with it (finished)
+A. As a user, I want to see recent instruments in the collection (get guitars in collection, get amps in collection, get pedals in collection)<br>
+B. As a user, I want to see all guitars in the collection (get guitars in collection)<br>
+C. As a user, I want to see all amps in the collection (get amps in collection) <br>
+D. As a user, I want to see all pedals in the collection (get pedals in collection) <br>
+E. As a user, I want to see specific information about a single guitar (get guitar in collection or wishlist)<br>
+F. As a user, I want to see specific information about a single amp (get amp in collection or wishlist)<br>
+G. As a user, I want to see specific information about a single pedal (get pedal in collection or wishlist)<br>
+H. As a user, I want to be able to add a guitar to the database (post guitar)<br>
+I. As a user, I want to be able to add an amp to the database (post amp)<br>
+J. As a user, I want to be able to add a pedal to the database (post pedal)<br>
+K. As a user, I want to see which guitar type(s) a single guitar is associated with (get guitarTypes by guitar id)<br>
+L. As a user, I want to be able to add a guitar type to a guitar (post guitarType by guitar id)<br>
+M. As a user, I want to see all guitars of a specific guitar type (get guitars by guitarType id)<br>
+N. As a user, I want to be able to add a note on an instrument (post note by instrument id)<br>
+O. As a user, I want to see all notes for an instrument (get notes by instrument id)<br>
+P. As a user, I want to edit instrument details when they change (Post update guitar, post update amp, post, update pedal)<br>
+Q. As a user, I want to delete instruments when they are no longer in my collection or wantlist (post delete guitar, post delete amp, post delete pedal).
+R. As a user, I want to delete notes that are no longer relevant (post delete note)<br>
+S. As a user, I want to delete a guitar type association in case of error (post delete guitarType)<br>
+
 
 ## Data relationship
 ![alt tag](screenshots/data.png "Data Model")
@@ -34,52 +40,55 @@ N. As an admin, I want to add an Instrument Type so an Instrument can be associa
 * Open project in IDE such as IntelliJ IDEA
 * Run App.java to compile the program
 * Use a program such as postman to create API requests to localhost:4567
-  * Add an instrument type `post:` `/instrumentTypes/new`
-    * As JSON of the format: <br>
-    `"name": "{user_input}"`
-  * Get all instrument types: `get:` `/instrumentTypes`
-  * Get specific instrument type: `get:` `/instrumentTypes/{instrumentType_id}`
+  * Get all guitars: `get:` `/guitars`
+  * Get specific guitar: `get:` `/guitars/{guitar_id}`
   * Add a guitar: `post:` `/guitars/new`
     * As JSON of the format: <br>
-    `"manufacturer": "{user_input}"`<br>
-    `"model": "{user_input}"`<br>
-	`"country": "{user_input}"`<br>
-	`"serialNumber": "{user_input}"`<br>
-	`"imageUrl": "{user_input}"`<br>
-	`"instrumentTypeId": "{user_input}"`<br>
-	`"current": "{user_input}"`<br>
-	`"wishlist": "{user_input}"`<br>
-	`"weight": "{user_input}"`<br>
-	`"bodyWood": "{user_input}"`<br>
-	`"finish": "{user_input}"`<br>
-	`"color": "{user_input}"`<br>
-	`"binding": "{user_input}"`<br>
-	`"neckWood": "{user_input}"`<br>
-	`"neckType": "{user_input}"`<br>
-	`"neckProfile": "{user_input}"`<br>
-	`"fretboardWood": "{user_input}"`<br>
-	`"fretboardRadius": "{user_input}"`<br>
-	`"frets": "{user_input}"`<br>
-	`"fretMaterial": "{user_input}"`<br>
-	`"inlays": "{user_input}"`<br>
-	`"nutMaterial": "{user_input}"`<br>
-	`"nutWidth": "{user_input}"`<br>
-	`"scaleLength": "{user_input}"`<br>
-	`"neckPickup": "{user_input}"`<br>
-	`"middlePickup": "{user_input}"`<br>
-	`"bridgePickup": "{user_input}"`<br>
-	`"volumePots": "{user_input}"`<br>
-	`"tonePots": "{user_input}"`<br>
-	`"capacitor": "{user_input}"`<br>
-	`"tuners": "{user_input}"`<br>
-	`"tunerButtons": "{user_input}"`<br>
-	`"bridge": "{user_input}"`<br>
-	`"tailpiece": "{user_input}"`<br>
-	`"guitarSwitch": "{user_input}"`<br>
-	`"knobs": "{user_input}"`<br>
-	`"pickguard": "{user_input}"`<br>
-	`"controls": "{user_input}"`<br>
-	`"guitarCase":"{user_input}"`
+    ```
+    {
+      "manufacturer": "{user_input}",
+      "model": "{user_input}",
+      "country": "{user_input}",
+      "serialNumber": "{user_input}",
+      "year": {user_input},
+      "weight": {user_input},
+      "imageUrl": "{user_input}",
+      "current": {user_input},
+      "wishlist": {user_input},
+      "paid": {user_input},
+      "sold": {user_input},
+      "bodyWood": "{user_input}",
+      "finish": "{user_input}",
+      "color": "{user_input}",
+      "binding": "{user_input}",
+      "neckWood": "{user_input}",
+      "neckType": "{user_input}",
+      "neckProfile": "{user_input}",
+      "fretboardWood": "{user_input}",
+      "fretboardRadius": {user_input},
+      "frets": {user_input},
+      "fretMaterial": "{user_input}",
+      "inlays": "{user_input}",
+      "nutMaterial": "{user_input}",
+      "nutWidth": {user_input},
+      "scaleLength": {user_input},
+      "neckPickup": "{user_input}",
+      "middlePickup": "{user_input}",
+      "bridgePickup": "{user_input}",
+      "volumePots": "{user_input}",
+      "tonePots": "{user_input}",
+      "capacitor": "{user_input}",
+      "tuners": "{user_input}",
+      "tunerButtons": "{user_input}",
+      "bridge": "{user_input}",
+      "tailpiece": "{user_input}",
+      "guitarSwitch": "{user_input}",
+      "knobs": "{user_input}",
+      "pickguard": "{user_input}",
+      "controls": "{user_input}",
+      "guitarCase":"{user_input}"
+    }
+    ```
 
 ## Known Bugs
 

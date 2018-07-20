@@ -1,10 +1,5 @@
 SET MODE PostgreSQL;
 
-CREATE TABLE IF NOT EXISTS instrumentTypes (
- id int PRIMARY KEY auto_increment,
- name VARCHAR,
-);
-
 CREATE TABLE IF NOT EXISTS guitarTypes (
  id int PRIMARY KEY auto_increment,
  name VARCHAR,
@@ -16,15 +11,17 @@ CREATE TABLE IF NOT EXISTS instruments (
  model VARCHAR,
  country VARCHAR,
  serialNumber VARCHAR,
+ year int,
+ weight Decimal,
  imageUrl VARCHAR,
- instrumentTypeId int,
- current VARCHAR,
- wishlist VARCHAR
+ current BOOL,
+ wishlist BOOL,
+ paid Decimal,
+ sold Decimal
 );
 
 CREATE TABLE IF NOT EXISTS guitars (
  id int,
- weight Decimal,
  bodyWood VARCHAR,
  finish VARCHAR,
  color VARCHAR,
@@ -55,6 +52,54 @@ CREATE TABLE IF NOT EXISTS guitars (
  pickguard VARCHAR,
  controls VARCHAR,
  guitarCase VARCHAR,
+ FOREIGN KEY (id) REFERENCES instruments (id)
+);
+
+CREATE TABLE IF NOT EXISTS amps (
+ id int,
+ instrument VARCHAR,
+ type VARCHAR,
+ power int,
+ cabinetWood VARCHAR,
+ finish VARCHAR,
+ grillCloth VARCHAR,
+ width int,
+ depth int,
+ height int,
+ electronics VARCHAR,
+ speakers VARCHAR,
+ powerTubes VARCHAR,
+ preAmpTubes VARCHAR,
+ rectifierTube VARCHAR,
+ reverb BOOL,
+ tremolo BOOL,
+ externalSpeaker VARCHAR,
+ handle VARCHAR,
+ knobs VARCHAR,
+ jewelLight VARCHAR,
+ controlPanel VARCHAR,
+ logo VARCHAR,
+ tiltLegs BOOL,
+ feet VARCHAR,
+ controls VARCHAR,
+ cover VARCHAR,
+ FOREIGN KEY (id) REFERENCES instruments (id)
+);
+
+CREATE TABLE IF NOT EXISTS pedals (
+ id int,
+ type VARCHAR,
+ power VARCHAR,
+ width Decimal,
+ depth Decimal,
+ height Decimal,
+ electronics VARCHAR,
+ trueBypass BOOL,
+ inputImpedance int,
+ outputImpedance int,
+ currentDraw VARCHAR,
+ controls VARCHAR,
+ features VARCHAR,
  FOREIGN KEY (id) REFERENCES instruments (id)
 );
 

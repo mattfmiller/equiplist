@@ -6,9 +6,8 @@ import java.util.List;
 
 public interface InstrumentDao {
 //    //READ
-//    List<Instrument> getAll();
+//    List<Instrument> getRecent();
 //    Instrument findById(int id);
-//    List<Instrument> getAllInstrumentsByInstrumentTypeId();
 //
 //    //DELETE
 //    void deleteById(int id);

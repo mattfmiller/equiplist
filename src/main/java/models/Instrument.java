@@ -8,20 +8,26 @@ public class Instrument {
     private String model;
     private String country;
     private String serialNumber;
+    private int year;
+    private double weight;
     private String imageUrl;
-    private int instrumentTypeId;
     private Boolean current;
     private Boolean wishlist;
+    private double paid;
+    private double sold;
 
-    public Instrument(String manufacturer, String model, String country, String serialNumber, String imageUrl, int instrumentTypeId, Boolean current, Boolean wishlist) {
+    public Instrument(String manufacturer, String model, String country, String serialNumber, int year, double weight, String imageUrl, Boolean current, Boolean wishlist, double paid, double sold) {
         this.manufacturer = manufacturer;
         this.model = model;
         this.country = country;
         this.serialNumber = serialNumber;
+        this.year = year;
+        this.weight = weight;
         this.imageUrl = imageUrl;
-        this.instrumentTypeId = instrumentTypeId;
         this.current = current;
         this.wishlist = wishlist;
+        this.paid = paid;
+        this.sold = sold;
     }
 
     public int getId() {
@@ -72,14 +78,6 @@ public class Instrument {
         this.imageUrl = imageUrl;
     }
 
-    public int getInstrumentTypeId() {
-        return instrumentTypeId;
-    }
-
-    public void setInstrumentTypeId(int instrumentTypeId) {
-        this.instrumentTypeId = instrumentTypeId;
-    }
-
     public Boolean getCurrent() {
         return current;
     }
@@ -96,13 +94,48 @@ public class Instrument {
         this.wishlist = wishlist;
     }
 
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public double getPaid() {
+        return paid;
+    }
+
+    public void setPaid(double paid) {
+        this.paid = paid;
+    }
+
+    public double getSold() {
+        return sold;
+    }
+
+    public void setSold(double sold) {
+        this.sold = sold;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Instrument that = (Instrument) o;
         return id == that.id &&
-                instrumentTypeId == that.instrumentTypeId &&
+                year == that.year &&
+                Double.compare(that.weight, weight) == 0 &&
+                Double.compare(that.paid, paid) == 0 &&
+                Double.compare(that.sold, sold) == 0 &&
                 Objects.equals(manufacturer, that.manufacturer) &&
                 Objects.equals(model, that.model) &&
                 Objects.equals(country, that.country) &&
@@ -115,6 +148,6 @@ public class Instrument {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, manufacturer, model, country, serialNumber, imageUrl, instrumentTypeId, current, wishlist);
+        return Objects.hash(id, manufacturer, model, country, serialNumber, year, weight, imageUrl, current, wishlist, paid, sold);
     }
 }

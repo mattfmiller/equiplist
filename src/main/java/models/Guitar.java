@@ -3,7 +3,6 @@ package models;
 import java.util.Objects;
 
 public class Guitar extends Instrument {
-    private double weight;
     private String bodyWood;
     private String finish;
     private String color;
@@ -35,9 +34,8 @@ public class Guitar extends Instrument {
     private String controls;
     private String guitarCase;
 
-    public Guitar(String manufacturer, String model, String country, String serialNumber, String imageUrl, int instrumentTypeId, Boolean current, Boolean wishlist, double weight, String bodyWood, String finish, String color, String binding, String neckWood, String neckType, String neckProfile, String fretboardWood, Double fretboardRadius, int frets, String fretMaterial, String inlays, String nutMaterial, double nutWidth, double scaleLength, String neckPickup, String middlePickup, String bridgePickup, String volumePots, String tonePots, String capacitor, String tuners, String tunerButtons, String bridge, String tailpiece, String guitarSwitch, String knobs, String pickguard, String controls, String guitarCase) {
-        super(manufacturer, model, country, serialNumber, imageUrl, instrumentTypeId, current, wishlist);
-        this.weight = weight;
+    public Guitar(String manufacturer, String model, String country, String serialNumber, int year, Double weight, String imageUrl, Boolean current, Boolean wishlist, double paid, double sold, String bodyWood, String finish, String color, String binding, String neckWood, String neckType, String neckProfile, String fretboardWood, Double fretboardRadius, int frets, String fretMaterial, String inlays, String nutMaterial, double nutWidth, double scaleLength, String neckPickup, String middlePickup, String bridgePickup, String volumePots, String tonePots, String capacitor, String tuners, String tunerButtons, String bridge, String tailpiece, String guitarSwitch, String knobs, String pickguard, String controls, String guitarCase) {
+        super(manufacturer, model, country, serialNumber, year, weight, imageUrl, current, wishlist, paid, sold);
         this.bodyWood = bodyWood;
         this.finish = finish;
         this.color = color;
@@ -70,14 +68,6 @@ public class Guitar extends Instrument {
         this.guitarCase = guitarCase;
     }
 
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
 
     public String getBodyWood() {
         return bodyWood;
@@ -325,8 +315,7 @@ public class Guitar extends Instrument {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Guitar guitar = (Guitar) o;
-        return Double.compare(guitar.weight, weight) == 0 &&
-                frets == guitar.frets &&
+        return frets == guitar.frets &&
                 Double.compare(guitar.nutWidth, nutWidth) == 0 &&
                 Double.compare(guitar.scaleLength, scaleLength) == 0 &&
                 Objects.equals(bodyWood, guitar.bodyWood) &&
@@ -361,6 +350,6 @@ public class Guitar extends Instrument {
     @Override
     public int hashCode() {
 
-        return Objects.hash(super.hashCode(), weight, bodyWood, finish, color, binding, neckWood, neckType, neckProfile, fretboardWood, fretboardRadius, frets, fretMaterial, inlays, nutMaterial, nutWidth, scaleLength, neckPickup, middlePickup, bridgePickup, volumePots, tonePots, capacitor, tuners, tunerButtons, bridge, tailpiece, guitarSwitch, knobs, pickguard, controls, guitarCase);
+        return Objects.hash(super.hashCode(), bodyWood, finish, color, binding, neckWood, neckType, neckProfile, fretboardWood, fretboardRadius, frets, fretMaterial, inlays, nutMaterial, nutWidth, scaleLength, neckPickup, middlePickup, bridgePickup, volumePots, tonePots, capacitor, tuners, tunerButtons, bridge, tailpiece, guitarSwitch, knobs, pickguard, controls, guitarCase);
     }
 }

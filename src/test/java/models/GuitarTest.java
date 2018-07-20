@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class GuitarTest {
 
     public Guitar setupNewGuitar() {
-        return new Guitar ("Gibson", "Les Paul Custom", "USA", "xxx", "www.test.url", 1, true, false, 10.75, "Mahogany", "Lacquer", "Ebony", "5-Ply", "Mahogany", "Set", "1960's Slim Taper", "Ebony", 12.0, 22, "Gibson Style", "Mother of Pearl Block", "Bone", 1.6875, 24.75, "Humbucker", "N/A", "Humbucker", "500K CTS", "500K CTS", "Sprangue .022 uf", "Grover Rotomatic", "Nickel Keystone", "Roller", "Bigsby B7", "3-way", "Bellhat", "5-Ply", "Volume, Tone", "Gibson Hardcase");
+        return new Guitar ("Gibson", "Les Paul Custom", "USA", "xxx", 1999, 10.8, "www.test.url", true, false, 1500.00, 0.00,"Mahogany", "Lacquer", "Ebony", "5-Ply", "Mahogany", "Set", "1960's Slim Taper", "Ebony", 12.0, 22, "Gibson Style", "Mother of Pearl Block", "Bone", 1.6875, 24.75, "Humbucker", "N/A", "Humbucker", "500K CTS", "500K CTS", "Sprangue .022 uf", "Grover Rotomatic", "Nickel Keystone", "Roller", "Bigsby B7", "3-way", "Bellhat", "5-Ply", "Volume, Tone", "Gibson Hardcase");
     }
 
     @Test
@@ -16,18 +16,6 @@ public class GuitarTest {
         assertTrue(testGuitar instanceof Guitar);
     }
 
-    @Test
-    public void getWeight_1075() {
-        Guitar testGuitar = setupNewGuitar();
-        assertEquals(10.75, testGuitar.getWeight(), 0.05);
-    }
-
-    @Test
-    public void setWeight_1175() {
-        Guitar testGuitar = setupNewGuitar();
-        testGuitar.setWeight(11.75);
-        assertEquals(11.75, testGuitar.getWeight(), 0.05);
-    }
 
     @Test
     public void getBodyWood_mahogany() {
