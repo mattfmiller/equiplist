@@ -36,7 +36,7 @@ S. As a user, I want to delete a guitar type association in case of error (post 
 
 ## Setup/Installation Requirements
 
-* View program by cloning repository from https://github.com/mattfmiller/jadle
+* View program by cloning repository from https://github.com/mattfmiller/equiplist
 * Open project in IDE such as IntelliJ IDEA
 * Run App.java to compile the program
 * Use a program such as postman to create API requests to localhost:4567
