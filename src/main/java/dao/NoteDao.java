@@ -13,7 +13,7 @@ public interface NoteDao {
     Note findById(int id);
 
     // UPDATE
-    void update(int id, String content);
+    void update(int id, Note note);
 
     // DELETE
     void deleteById(int id);

@@ -73,7 +73,8 @@ public class Sql2oNoteDaoTest {
     public void update() {
         Note testNote = setupNewNote();
         noteDao.add(testNote);
-        noteDao.update(1, "cool man");
+        Note testNote2 = new Note("cool man", 1);
+        noteDao.update(1, testNote2);
         List<Note> foundNotes = noteDao.getAllByInstrumentId(1);
         assertEquals("cool man", foundNotes.get(0).getContent());
     }

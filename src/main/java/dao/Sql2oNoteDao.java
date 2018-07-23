@@ -49,11 +49,11 @@ public class Sql2oNoteDao implements NoteDao {
     }
 
     @Override
-    public void update(int id, String content) {
+    public void update(int id, Note note) {
         String sql = "UPDATE notes SET content = :content WHERE id = :id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
-                    .addParameter("content", content)
+                    .addParameter("content", note.getContent())
                     .addParameter("id", id)
                     .executeUpdate();
         } catch (Sql2oException ex) {

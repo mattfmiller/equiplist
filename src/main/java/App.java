@@ -2,9 +2,8 @@ import com.google.gson.Gson;
 import dao.Sql2oGuitarDao;
 import dao.Sql2oAmpDao;
 import dao.Sql2oPedalDao;
-import models.Guitar;
-import models.Amp;
-import models.Pedal;
+import dao.Sql2oNoteDao;
+import models.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
@@ -19,6 +18,7 @@ public class App {
         Sql2oGuitarDao guitarDao;
         Sql2oAmpDao ampDao;
         Sql2oPedalDao pedalDao;
+        Sql2oNoteDao noteDao;
         Connection conn;
         Gson gson = new Gson();
 
@@ -28,6 +28,7 @@ public class App {
         guitarDao = new Sql2oGuitarDao(sql2o);
         ampDao = new Sql2oAmpDao(sql2o);
         pedalDao = new Sql2oPedalDao(sql2o);
+        noteDao = new Sql2oNoteDao(sql2o);
         conn = sql2o.open();
 
         //post: add new guitar instrument
@@ -155,5 +156,38 @@ public class App {
             res.status(201);
             return "success";
         });
+
+        //post: add new guitar instrument
+        post("/notes/new", "application/json", (req, res) -> {
+            Note note = gson.fromJson(req.body(), Note.class);
+            noteDao.add(note);
+            res.status(201);
+            return gson.toJson(note);
+        });
+
+        //post: Delete note by id
+        post("/notes/:id/delete", "application/json", (req, res) -> {
+            int pedalId = Integer.parseInt(req.params("id"));
+            pedalDao.delteteById(pedalId);
+            res.status(201);
+            return "success";
+        });
+
+        //post: Edit note by id
+        post("/notes/:id/edit", "application/json", (req, res) -> {
+            int noteId = Integer.parseInt(req.params("id"));
+            Note note = gson.fromJson(req.body(), Note.class);
+            noteDao.update(noteId, note);
+            res.status(201);
+            return gson.toJson(note);
+        });
+
+        //get: show notes by instrument id
+        get("/instruments/:id/notes", "application/json", (req, res) -> {
+            int noteId = Integer.parseInt(req.params("id"));
+            res.type("application/json");
+            return gson.toJson(noteDao.getAllByInstrumentId(noteId));
+        });
+
     }
 }
