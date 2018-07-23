@@ -59,6 +59,7 @@ S. As a user, I want to delete a guitar type association in case of error (post 
       "wishlist": {user_input},
       "paid": {user_input},
       "sold": {user_input},
+      "type": "{user_input}",
       "bodyWood": "{user_input}",
       "finish": "{user_input}",
       "color": "{user_input}",
