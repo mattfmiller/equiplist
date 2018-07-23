@@ -72,7 +72,8 @@ public class Sql2oAdditionalImageDaoTest {
     public void update() {
         AdditionalImage testAdditionalImage = setupNewAdditionalImage();
         additionalImageDao.add(testAdditionalImage);
-        additionalImageDao.update(1, "cool man");
+        AdditionalImage testAdditionalImage2 = new AdditionalImage("cool man", 1);
+        additionalImageDao.update(1, testAdditionalImage2);
         List<AdditionalImage> foundAdditionalImages = additionalImageDao.getAllByInstrumentId(1);
         assertEquals("cool man", foundAdditionalImages.get(0).getUrl());
     }

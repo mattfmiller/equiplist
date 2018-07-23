@@ -13,7 +13,7 @@ public interface AdditionalImageDao {
     AdditionalImage findById(int id);
 
     // UPDATE
-    void update(int id, String url);
+    void update(int id, AdditionalImage additionalImage);
 
     // DELETE
     void deleteById(int id);

@@ -1,8 +1,5 @@
 import com.google.gson.Gson;
-import dao.Sql2oGuitarDao;
-import dao.Sql2oAmpDao;
-import dao.Sql2oPedalDao;
-import dao.Sql2oNoteDao;
+import dao.*;
 import models.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -19,6 +16,7 @@ public class App {
         Sql2oAmpDao ampDao;
         Sql2oPedalDao pedalDao;
         Sql2oNoteDao noteDao;
+        Sql2oAdditionalImageDao additionalImageDao;
         Connection conn;
         Gson gson = new Gson();
 
@@ -29,6 +27,7 @@ public class App {
         ampDao = new Sql2oAmpDao(sql2o);
         pedalDao = new Sql2oPedalDao(sql2o);
         noteDao = new Sql2oNoteDao(sql2o);
+        additionalImageDao = new Sql2oAdditionalImageDao(sql2o);
         conn = sql2o.open();
 
         //post: add new guitar instrument
@@ -157,7 +156,7 @@ public class App {
             return "success";
         });
 
-        //post: add new guitar instrument
+        //post: add new note
         post("/notes/new", "application/json", (req, res) -> {
             Note note = gson.fromJson(req.body(), Note.class);
             noteDao.add(note);
@@ -189,5 +188,36 @@ public class App {
             return gson.toJson(noteDao.getAllByInstrumentId(noteId));
         });
 
+        //post: add new additionalImage
+        post("/additionalImages/new", "application/json", (req, res) -> {
+            AdditionalImage additionalImage = gson.fromJson(req.body(), AdditionalImage.class);
+            additionalImageDao.add(additionalImage);
+            res.status(201);
+            return gson.toJson(additionalImage);
+        });
+
+        //post: Delete additionalImage by id
+        post("/additionalImages/:id/delete", "application/json", (req, res) -> {
+            int pedalId = Integer.parseInt(req.params("id"));
+            pedalDao.delteteById(pedalId);
+            res.status(201);
+            return "success";
+        });
+
+        //post: Edit additionalImage by id
+        post("/additionalImages/:id/edit", "application/json", (req, res) -> {
+            int additionalImageId = Integer.parseInt(req.params("id"));
+            AdditionalImage additionalImage = gson.fromJson(req.body(), AdditionalImage.class);
+            additionalImageDao.update(additionalImageId, additionalImage);
+            res.status(201);
+            return gson.toJson(additionalImage);
+        });
+
+        //get: show additionalImages by instrument id
+        get("/instruments/:id/additionalImages", "application/json", (req, res) -> {
+            int additionalImageId = Integer.parseInt(req.params("id"));
+            res.type("application/json");
+            return gson.toJson(additionalImageDao.getAllByInstrumentId(additionalImageId));
+        });
     }
 }

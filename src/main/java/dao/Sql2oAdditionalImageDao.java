@@ -49,11 +49,11 @@ public class Sql2oAdditionalImageDao implements AdditionalImageDao {
     }
 
     @Override
-    public void update(int id, String url) {
+    public void update(int id, AdditionalImage additionalImage) {
         String sql = "UPDATE additionalImages SET url = :url WHERE id = :id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
-                    .addParameter("url", url)
+                    .addParameter("url", additionalImage.getUrl())
                     .addParameter("id", id)
                     .executeUpdate();
         } catch (Sql2oException ex) {
