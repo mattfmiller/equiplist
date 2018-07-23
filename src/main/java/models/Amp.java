@@ -14,23 +14,21 @@ public class Amp extends Instrument {
     private int height;
     private String electronics;
     private String speakers;
-    private String powerTubes;
-    private String preAmpTubes;
-    private String rectifierTube;
-    private Boolean reverb;
-    private Boolean tremolo;
+    private String tubes;
+    private String reverb;
+    private String tremolo;
     private String externalSpeaker;
     private String handle;
     private String knobs;
     private String jewelLight;
     private String controlPanel;
     private String logo;
-    private Boolean tiltLegs;
+    private String tiltLegs;
     private String feet;
     private String controls;
     private String cover;
 
-    public Amp(String manufacturer, String model, String country, String serialNumber, int year, Double weight, String imageUrl, Boolean current, Boolean wishlist, double paid, double sold, String instrument, String type, int power, String cabinetWood, String finish, String grillCloth, int width, int depth, int height, String electronics, String speakers, String powerTubes, String preAmpTubes, String rectifierTube, Boolean reverb, Boolean tremolo, String externalSpeaker, String handle, String knobs, String jewelLight, String controlPanel, String logo, Boolean tiltLegs, String feet, String controls, String cover) {
+    public Amp(String manufacturer, String model, String country, String serialNumber, int year, Double weight, String imageUrl, Boolean current, Boolean wishlist, double paid, double sold, String instrument, String type, int power, String cabinetWood, String finish, String grillCloth, int width, int depth, int height, String electronics, String speakers, String tubes, String reverb, String tremolo, String externalSpeaker, String handle, String knobs, String jewelLight, String controlPanel, String logo, String tiltLegs, String feet, String controls, String cover) {
         super(manufacturer, model, country, serialNumber, year, weight, imageUrl, current, wishlist, paid, sold);
         this.instrument = instrument;
         this.type = type;
@@ -43,9 +41,7 @@ public class Amp extends Instrument {
         this.height = height;
         this.electronics = electronics;
         this.speakers = speakers;
-        this.powerTubes = powerTubes;
-        this.preAmpTubes = preAmpTubes;
-        this.rectifierTube = rectifierTube;
+        this.tubes = tubes;
         this.reverb = reverb;
         this.tremolo = tremolo;
         this.externalSpeaker = externalSpeaker;
@@ -148,43 +144,27 @@ public class Amp extends Instrument {
         this.speakers = speakers;
     }
 
-    public String getPowerTubes() {
-        return powerTubes;
+    public String getTubes() {
+        return tubes;
     }
 
-    public void setPowerTubes(String powerTubes) {
-        this.powerTubes = powerTubes;
+    public void setTubes(String powerTubes) {
+        this.tubes = powerTubes;
     }
 
-    public String getPreAmpTubes() {
-        return preAmpTubes;
-    }
-
-    public void setPreAmpTubes(String preAmpTubes) {
-        this.preAmpTubes = preAmpTubes;
-    }
-
-    public String getRectifierTube() {
-        return rectifierTube;
-    }
-
-    public void setRectifierTube(String rectifierTube) {
-        this.rectifierTube = rectifierTube;
-    }
-
-    public Boolean getReverb() {
+    public String getReverb() {
         return reverb;
     }
 
-    public void setReverb(Boolean reverb) {
+    public void setReverb(String reverb) {
         this.reverb = reverb;
     }
 
-    public Boolean getTremolo() {
+    public String getTremolo() {
         return tremolo;
     }
 
-    public void setTremolo(Boolean tremolo) {
+    public void setTremolo(String tremolo) {
         this.tremolo = tremolo;
     }
 
@@ -236,11 +216,11 @@ public class Amp extends Instrument {
         this.logo = logo;
     }
 
-    public Boolean getTiltLegs() {
+    public String getTiltLegs() {
         return tiltLegs;
     }
 
-    public void setTiltLegs(Boolean tiltLegs) {
+    public void setTiltLegs(String tiltLegs) {
         this.tiltLegs = tiltLegs;
     }
 
@@ -285,9 +265,7 @@ public class Amp extends Instrument {
                 Objects.equals(grillCloth, amp.grillCloth) &&
                 Objects.equals(electronics, amp.electronics) &&
                 Objects.equals(speakers, amp.speakers) &&
-                Objects.equals(powerTubes, amp.powerTubes) &&
-                Objects.equals(preAmpTubes, amp.preAmpTubes) &&
-                Objects.equals(rectifierTube, amp.rectifierTube) &&
+                Objects.equals(tubes, amp.tubes) &&
                 Objects.equals(reverb, amp.reverb) &&
                 Objects.equals(tremolo, amp.tremolo) &&
                 Objects.equals(externalSpeaker, amp.externalSpeaker) &&
@@ -305,6 +283,6 @@ public class Amp extends Instrument {
     @Override
     public int hashCode() {
 
-        return Objects.hash(super.hashCode(), instrument, type, power, cabinetWood, finish, grillCloth, width, depth, height, electronics, speakers, powerTubes, preAmpTubes, rectifierTube, reverb, tremolo, externalSpeaker, handle, knobs, jewelLight, controlPanel, logo, tiltLegs, feet, controls, cover);
+        return Objects.hash(super.hashCode(), instrument, type, power, cabinetWood, finish, grillCloth, width, depth, height, electronics, speakers, tubes, reverb, tremolo, externalSpeaker, handle, knobs, jewelLight, controlPanel, logo, tiltLegs, feet, controls, cover);
     }
 }

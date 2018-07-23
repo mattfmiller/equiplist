@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class AmpTest {
 
     public Amp setupNewAmp() {
-        return new Amp ("Gibson", "Les Paul Custom", "USA", "xxx", 1999, 45.8, "www.test.url", true, false, 600.00, 0.00,"Guitar", "Head and Cab", 40, "Pine", "Blonde Tolex", "Ox Blood", 12, 13, 14, "Handwired", "2 Weber 10 inch", "2 6V6", "4 12AX7", "N/A", false, false, "N/A", "Dog Bone", "White Cupcake", "Blue", " blackface fender bassman", "Fender with tail", true, "rubber", "volume, treble, bass", "N/A");
+        return new Amp ("Gibson", "Les Paul Custom", "USA", "xxx", 1999, 45.8, "www.test.url", true, false, 600.00, 0.00,"Guitar", "Head and Cab", 40, "Pine", "Blonde Tolex", "Ox Blood", 12, 13, 14, "Handwired", "2 Weber 10 inch", "2 6V6, 4 12AX7", "None", "None", "N/A", "Dog Bone", "White Cupcake", "Blue", " blackface fender bassman", "Fender with tail", "Fender Medium Tilt Legs", "rubber", "volume, treble, bass", "N/A");
     }
 
     @Test
@@ -95,38 +95,24 @@ public class AmpTest {
     }
 
     @Test
-    public void setPowerTubes() throws Exception {
+    public void setTubes() throws Exception {
         Amp testAmp = setupNewAmp();
-        testAmp.setPowerTubes("2 6L6");
-        assertEquals("2 6L6", testAmp.getPowerTubes());
-    }
-
-    @Test
-    public void setPreAmpTubes() throws Exception {
-        Amp testAmp = setupNewAmp();
-        testAmp.setPreAmpTubes("4 12AT7");
-        assertEquals("4 12AT7", testAmp.getPreAmpTubes());
-    }
-
-    @Test
-    public void setRectifierTube() throws Exception {
-        Amp testAmp = setupNewAmp();
-        testAmp.setRectifierTube("5U4");
-        assertEquals("5U4", testAmp.getRectifierTube());
+        testAmp.setTubes("2 6L6, 4 12At7");
+        assertEquals("2 6L6, 4 12At7", testAmp.getTubes());
     }
 
     @Test
     public void setReverb() throws Exception {
         Amp testAmp = setupNewAmp();
-        testAmp.setReverb(true);
-        assertEquals(true, testAmp.getReverb());
+        testAmp.setReverb("True");
+        assertEquals("True", testAmp.getReverb());
     }
 
     @Test
     public void setTremolo() throws Exception {
         Amp testAmp = setupNewAmp();
-        testAmp.setTremolo(true);
-        assertEquals(true, testAmp.getTremolo());
+        testAmp.setTremolo("True");
+        assertEquals("True", testAmp.getTremolo());
     }
 
     @Test
@@ -174,8 +160,8 @@ public class AmpTest {
     @Test
     public void setTiltLegs() throws Exception {
         Amp testAmp = setupNewAmp();
-        testAmp.setTiltLegs(false);
-        assertEquals(false, testAmp.getTiltLegs());
+        testAmp.setTiltLegs("None");
+        assertEquals("None", testAmp.getTiltLegs());
     }
 
     @Test
