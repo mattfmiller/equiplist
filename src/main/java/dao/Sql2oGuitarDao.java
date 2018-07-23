@@ -15,7 +15,7 @@ public class Sql2oGuitarDao implements GuitarDao{
 
     @Override
     public void add(Guitar guitar) {
-        String instrumentSql = "INSERT INTO instruments (manufacturer, model, country, serialNumber, year, weight, imageUrl, current, wishlist, paid, sold) VALUES (:manufacturer, :model, :country, :serialNumber, :year, :weight, :imageUrl, :current, :wishlist, :paid, :sold)";
+        String instrumentSql = "INSERT INTO instruments (manufacturer, model, country, serialNumber, description, year, weight, imageUrl, current, wishlist, paid, sold) VALUES (:manufacturer, :model, :country, :serialNumber, :description, :year, :weight, :imageUrl, :current, :wishlist, :paid, :sold)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(instrumentSql, true)
                     .bind(guitar)
@@ -52,5 +52,14 @@ public class Sql2oGuitarDao implements GuitarDao{
         }
     }
 
-
+    @Override
+    public List<Guitar> getAllGuitarsInWishlist() {
+        try(Connection con = sql2o.open()){
+            List<Guitar> allGuitarsWithoutNull = con.createQuery("SELECT * FROM guitars JOIN instruments ON guitars.id = instruments.id WHERE wishlist = :collectionBoolean")
+                    .addParameter("collectionBoolean", "true")
+                    .executeAndFetch(Guitar.class);
+            allGuitarsWithoutNull.removeAll(Collections.singleton(null));
+            return allGuitarsWithoutNull;
+        }
+    }
 }

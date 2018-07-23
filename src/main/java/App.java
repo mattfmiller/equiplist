@@ -33,7 +33,13 @@ public class App {
         //get: show guitars in collection
         get("/guitars", "application/json", (req, res) -> {
             res.type("application/json");
-            return gson.toJson(guitarDao.getAllGuitars());
+            return gson.toJson(guitarDao.getAllGuitarsInCollection());
+        });
+
+        //get: show guitars in Wishlist
+        get("/guitars/wishlist", "application/json", (req, res) -> {
+            res.type("application/json");
+            return gson.toJson(guitarDao.getAllGuitarsInWishlist());
         });
     }
 }
