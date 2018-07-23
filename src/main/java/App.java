@@ -89,5 +89,14 @@ public class App {
             res.type("application/json");
             return gson.toJson(pedalDao.getAllPedalsInWishlist());
         });
+
+        //post: Edit guitar instrument by id
+        post("/guitars/:id/edit", "application/json", (req, res) -> {
+            int releaseId = Integer.parseInt(req.params("id"));
+            Guitar guitar = gson.fromJson(req.body(), Guitar.class);
+            guitarDao.update(releaseId, guitar);
+            res.status(201);
+            return gson.toJson(guitar);
+        });
     }
 }
