@@ -1,10 +1,12 @@
 package dao;
 
 import models.Guitar;
+import models.Instrument;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 
@@ -134,6 +136,63 @@ public class Sql2oGuitarDao implements GuitarDao{
                     .executeUpdate();
         } catch (Sql2oException ex){
             System.out.println(ex);
+        }
+    }
+
+    @Override
+    public List<Guitar> search(String query) {
+        try(Connection con = sql2o.open()){
+            List<Guitar> searchedGuitars = new ArrayList<>();
+            List<Instrument> instrumentsByManufacturer = con.createQuery("SELECT * FROM instruments WHERE manufacturer LIKE :query")
+                    .addParameter("query", "%"+ query +"%")
+                    .executeAndFetch(Instrument.class);
+            List<Guitar> guitarsByManufacturer = new ArrayList<>();
+            for ( Instrument instrument: instrumentsByManufacturer) {
+                int id = instrument.getId();
+                List<Guitar> guitarsByInstrumentId = con.createQuery("SELECT * FROM guitars WHERE id = :id")
+                        .addParameter("id", id)
+                        .executeAndFetch(Guitar.class);
+                for (Guitar guitar: guitarsByInstrumentId) {
+                    guitarsByManufacturer.add(guitar);
+                }
+            }
+            for ( Guitar guitar : guitarsByManufacturer ) {
+                searchedGuitars.add(guitar);
+            }
+            List<Instrument> instrumentsByModel = con.createQuery("SELECT * FROM instruments WHERE model LIKE :query")
+                    .addParameter("query", "%"+ query +"%")
+                    .executeAndFetch(Instrument.class);
+            List<Guitar> guitarsByModel = new ArrayList<>();
+            for ( Instrument instrument: instrumentsByModel) {
+                int id = instrument.getId();
+                List<Guitar> guitarsByInstrumentId = con.createQuery("SELECT * FROM guitars WHERE id = :id")
+                        .addParameter("id", id)
+                        .executeAndFetch(Guitar.class);
+                for (Guitar guitar: guitarsByInstrumentId) {
+                    guitarsByModel.add(guitar);
+                }
+            }
+            for ( Guitar guitar : guitarsByModel ) {
+                searchedGuitars.add(guitar);
+            }
+//            List<Artist> artistsByName = con.createQuery("SELECT * FROM artists WHERE name LIKE :nameQuery")
+//                    .addParameter("nameQuery", "%"+ query +"%")
+//                    .executeAndFetch(Artist.class);
+//            for (Artist artist : artistsByName) {
+//                int artistId = artist.getId();
+//                List<Integer> releaseIdsByArtistId = con.createQuery("SELECT releaseId FROM artists_releases WHERE artistId = :artistId")
+//                        .addParameter("artistId", artistId)
+//                        .executeAndFetch(Integer.class);
+//                for (int releaseId:releaseIdsByArtistId) {
+//                    List<Release> releasesByArtistsId = con.createQuery("SELECT * FROM releases WHERE id = :id")
+//                            .addParameter("id", releaseId)
+//                            .executeAndFetch(Release.class);
+//                    for (Release release:releasesByArtistsId) {
+//                        searchedReleases.add(release);
+//                    }
+//                }
+//            }
+            return searchedGuitars;
         }
     }
 }
