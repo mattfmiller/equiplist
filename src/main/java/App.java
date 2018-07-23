@@ -92,11 +92,19 @@ public class App {
 
         //post: Edit guitar instrument by id
         post("/guitars/:id/edit", "application/json", (req, res) -> {
-            int releaseId = Integer.parseInt(req.params("id"));
+            int guitarId = Integer.parseInt(req.params("id"));
             Guitar guitar = gson.fromJson(req.body(), Guitar.class);
-            guitarDao.update(releaseId, guitar);
+            guitarDao.update(guitarId, guitar);
             res.status(201);
             return gson.toJson(guitar);
+        });
+
+        //post: Delete guitar instrument by id
+        post("/guitars/:id/delete", "application/json", (req, res) -> {
+            int guitarId = Integer.parseInt(req.params("id"));
+            guitarDao.delteteById(guitarId);
+            res.status(201);
+            return "success";
         });
     }
 }
