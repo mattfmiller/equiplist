@@ -8,15 +8,15 @@ public interface PedalDao {
     //CREATE
     void add(Pedal pedal);
 
-    //    //READ
+    //READ
     List<Pedal> getAllPedals();
     List<Pedal> getAllPedalsInCollection();
     List<Pedal> getAllPedalsInWishlist();
-//    List<Pedal> search(String query);
+    List<Pedal> search(String query);
 
     //UPDATE
-//    void update(int id, HashMap<String, Object> updatedContent);
+    void update(int id, Pedal pedal);
 
     //DELETE
-//    void delteteById(int id);
+    void delteteById(int id);
 }
