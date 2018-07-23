@@ -1,8 +1,10 @@
 import com.google.gson.Gson;
 import dao.Sql2oGuitarDao;
 import dao.Sql2oAmpDao;
+import dao.Sql2oPedalDao;
 import models.Guitar;
 import models.Amp;
+import models.Pedal;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
@@ -16,6 +18,7 @@ public class App {
     public static void main(String[] args) {
         Sql2oGuitarDao guitarDao;
         Sql2oAmpDao ampDao;
+        Sql2oPedalDao pedalDao;
         Connection conn;
         Gson gson = new Gson();
 
@@ -24,6 +27,7 @@ public class App {
 
         guitarDao = new Sql2oGuitarDao(sql2o);
         ampDao = new Sql2oAmpDao(sql2o);
+        pedalDao = new Sql2oPedalDao(sql2o);
         conn = sql2o.open();
 
         //post: add new guitar instrument
@@ -64,6 +68,26 @@ public class App {
         get("/amps/wishlist", "application/json", (req, res) -> {
             res.type("application/json");
             return gson.toJson(ampDao.getAllAmpsInWishlist());
+        });
+
+        //post: add new pedal instrument
+        post("/pedals/new", "application/json", (req, res) -> {
+            Pedal pedal = gson.fromJson(req.body(), Pedal.class);
+            pedalDao.add(pedal);
+            res.status(201);
+            return gson.toJson(pedal);
+        });
+
+        //get: show pedals in collection
+        get("/pedals", "application/json", (req, res) -> {
+            res.type("application/json");
+            return gson.toJson(pedalDao.getAllPedalsInCollection());
+        });
+
+        //get: show pedals in wishlist
+        get("/pedals/wishlist", "application/json", (req, res) -> {
+            res.type("application/json");
+            return gson.toJson(pedalDao.getAllPedalsInWishlist());
         });
     }
 }

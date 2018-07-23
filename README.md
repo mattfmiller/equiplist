@@ -40,7 +40,8 @@ S. As a user, I want to delete a guitar type association in case of error (post 
 * Open project in IDE such as IntelliJ IDEA
 * Run App.java to compile the program
 * Use a program such as postman to create API requests to localhost:4567
-  * Get all guitars: `get:` `/guitars`
+  * Get all guitars in collection: `get:` `/guitars`
+  * Get all guitars in wishlist: `get:` `/guitars/wishlist`
   * Get specific guitar: `get:` `/guitars/{guitar_id}`
   * Add a guitar: `post:` `/guitars/new`
     * As JSON of the format: <br>
@@ -90,6 +91,84 @@ S. As a user, I want to delete a guitar type association in case of error (post 
       "guitarCase":"{user_input}"
     }
     ```
+    * Get all amps in collection: `get:` `/amps`
+    * Get all amps in wishlist: `get:` `/amps/wishlist`
+    * Get specific amp: `get:` `/guitars/{amp_id}`
+    * Add an amp: `post:` `/amps/new`
+      * As JSON of the format: <br>
+      ```
+      {
+        "manufacturer": "{user_input}",
+        "model": "{user_input}",
+        "country": "{user_input}",
+        "serialNumber": "{user_input}",
+        "description": "{user_input}",
+        "year": {user_input},
+        "weight": {user_input},
+        "imageUrl": "{user_input}",
+        "current": {user_input},
+        "wishlist": {user_input},
+        "paid": {user_input},
+        "sold": {user_input},
+        "instrument": "{user_input}",
+        "type": "{user_input}",
+        "power": {user_input},
+        "cabinetWood": "{user_input}",
+        "finish": "{user_input}",
+        "grillCloth": "{user_input}",
+        "width": {user_input},
+        "depth": {user_input},
+        "height": {user_input},
+        "electronics": "{user_input}",
+        "speakers": "{user_input}",
+        "tubes": "{user_input}",
+        "reverb": "{user_input}",
+        "tremolo": "{user_input}",
+        "externalSpeaker": "{user_input}",
+        "handle": "{user_input}",
+        "knobs": "{user_input}",
+        "jewelLight": "{user_input}",
+        "controlPanel": "{user_input}",
+        "logo": "{user_input}",
+        "tiltLegs": "{user_input}",
+        "feet": "{user_input}",
+        "controls": "{user_input}",
+        "cover": "{user_input}"
+      }
+      ```
+      * Get all pedals in collection: `get:` `/pedals`
+      * Get all pedals in wishlist: `get:` `/pedals/wishlist`
+      * Get specific pedal: `get:` `/pedals/{pedal_id}`
+      * Add a pedal: `post:` `/pedals/new`
+        * As JSON of the format: <br>
+        ```
+        {
+          "manufacturer": "{user_input}",
+          "model": "{user_input}",
+          "country": "{user_input}",
+          "serialNumber": "{user_input}",
+          "description": "{user_input}",
+          "year": {user_input},
+          "weight": {user_input},
+          "imageUrl": "{user_input}",
+          "current": {user_input},
+          "wishlist": {user_input},
+          "paid": {user_input},
+          "sold": {user_input},
+          "type": "{user_input}",
+          "power": "{user_input}",
+          "width": {user_input},
+          "depth": {user_input},
+          "height": {user_input},
+          "electronics": "{user_input}",
+          "trueBypass": {user_input},
+          "inputImpedance": {user_input},
+          "outputImpedance": {user_input},
+          "currentDraw": "{user_input}",
+          "controls": "{user_input}",
+          "features": "{user_input}",
+        }
+        ```
 
 ## Known Bugs
 
