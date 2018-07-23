@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS instruments (
 
 CREATE TABLE IF NOT EXISTS guitars (
  id int,
+ type VARCHAR,
  bodyWood VARCHAR,
  finish VARCHAR,
  color VARCHAR,
