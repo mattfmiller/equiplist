@@ -149,7 +149,7 @@ public class Sql2oGuitarDao implements GuitarDao{
             List<Guitar> guitarsByManufacturer = new ArrayList<>();
             for ( Instrument instrument: instrumentsByManufacturer) {
                 int id = instrument.getId();
-                List<Guitar> guitarsByInstrumentId = con.createQuery("SELECT * FROM guitars WHERE id = :id")
+                List<Guitar> guitarsByInstrumentId = con.createQuery("SELECT * FROM guitars JOIN instruments ON guitars.id = instruments.id WHERE guitars.id = :id")
                         .addParameter("id", id)
                         .executeAndFetch(Guitar.class);
                 for (Guitar guitar: guitarsByInstrumentId) {
@@ -165,7 +165,7 @@ public class Sql2oGuitarDao implements GuitarDao{
             List<Guitar> guitarsByModel = new ArrayList<>();
             for ( Instrument instrument: instrumentsByModel) {
                 int id = instrument.getId();
-                List<Guitar> guitarsByInstrumentId = con.createQuery("SELECT * FROM guitars WHERE id = :id")
+                List<Guitar> guitarsByInstrumentId = con.createQuery("SELECT * FROM guitars JOIN instruments ON guitars.id = instruments.id WHERE guitars.id = :id")
                         .addParameter("id", id)
                         .executeAndFetch(Guitar.class);
                 for (Guitar guitar: guitarsByInstrumentId) {

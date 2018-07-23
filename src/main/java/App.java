@@ -41,7 +41,12 @@ public class App {
         //get: show guitars in collection
         get("/guitars", "application/json", (req, res) -> {
             res.type("application/json");
-            return gson.toJson(guitarDao.getAllGuitarsInCollection());
+            String query = req.queryParams("query");
+            if (query != null) {
+                return gson.toJson(guitarDao.search(query));
+            } else {
+                return gson.toJson(guitarDao.getAllGuitarsInCollection());
+            }
         });
 
         //get: show guitars in wishlist
