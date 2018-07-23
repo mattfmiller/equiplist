@@ -66,7 +66,12 @@ public class App {
         //get: show amps in collection
         get("/amps", "application/json", (req, res) -> {
             res.type("application/json");
-            return gson.toJson(ampDao.getAllAmpsInCollection());
+            String query = req.queryParams("query");
+            if (query != null) {
+                return gson.toJson(ampDao.search(query));
+            } else {
+                return gson.toJson(ampDao.getAllAmpsInCollection());
+            }
         });
 
         //get: show amps in wishlist
@@ -86,7 +91,12 @@ public class App {
         //get: show pedals in collection
         get("/pedals", "application/json", (req, res) -> {
             res.type("application/json");
-            return gson.toJson(pedalDao.getAllPedalsInCollection());
+            String query = req.queryParams("query");
+            if (query != null) {
+                return gson.toJson(pedalDao.search(query));
+            } else {
+                return gson.toJson(pedalDao.getAllPedalsInCollection());
+            }
         });
 
         //get: show pedals in wishlist
@@ -108,6 +118,40 @@ public class App {
         post("/guitars/:id/delete", "application/json", (req, res) -> {
             int guitarId = Integer.parseInt(req.params("id"));
             guitarDao.delteteById(guitarId);
+            res.status(201);
+            return "success";
+        });
+
+        //post: Edit amp instrument by id
+        post("/amps/:id/edit", "application/json", (req, res) -> {
+            int ampId = Integer.parseInt(req.params("id"));
+            Amp amp = gson.fromJson(req.body(), Amp.class);
+            ampDao.update(ampId, amp);
+            res.status(201);
+            return gson.toJson(amp);
+        });
+
+        //post: Delete amp instrument by id
+        post("/amps/:id/delete", "application/json", (req, res) -> {
+            int ampId = Integer.parseInt(req.params("id"));
+            ampDao.delteteById(ampId);
+            res.status(201);
+            return "success";
+        });
+
+        //post: Edit pedal instrument by id
+        post("/pedals/:id/edit", "application/json", (req, res) -> {
+            int pedalId = Integer.parseInt(req.params("id"));
+            Pedal pedal = gson.fromJson(req.body(), Pedal.class);
+            pedalDao.update(pedalId, pedal);
+            res.status(201);
+            return gson.toJson(pedal);
+        });
+
+        //post: Delete pedal instrument by id
+        post("/pedals/:id/delete", "application/json", (req, res) -> {
+            int pedalId = Integer.parseInt(req.params("id"));
+            pedalDao.delteteById(pedalId);
             res.status(201);
             return "success";
         });

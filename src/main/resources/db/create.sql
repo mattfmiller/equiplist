@@ -112,7 +112,6 @@ CREATE TABLE IF NOT EXISTS notes (
 
 CREATE TABLE IF NOT EXISTS additionalImages (
  id int PRIMARY KEY auto_increment,
- createdAt BIGINT,
  url VARCHAR,
  instrumentId int
 );
