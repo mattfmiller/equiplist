@@ -68,18 +68,16 @@ CREATE TABLE IF NOT EXISTS amps (
  height int,
  electronics VARCHAR,
  speakers VARCHAR,
- powerTubes VARCHAR,
- preAmpTubes VARCHAR,
- rectifierTube VARCHAR,
- reverb BOOL,
- tremolo BOOL,
+ tubes VARCHAR,
+ reverb VARCHAR,
+ tremolo VARCHAR,
  externalSpeaker VARCHAR,
  handle VARCHAR,
  knobs VARCHAR,
  jewelLight VARCHAR,
  controlPanel VARCHAR,
  logo VARCHAR,
- tiltLegs BOOL,
+ tiltLegs VARCHAR,
  feet VARCHAR,
  controls VARCHAR,
  cover VARCHAR,
@@ -107,5 +105,12 @@ CREATE TABLE IF NOT EXISTS notes (
  id int PRIMARY KEY auto_increment,
  createdAt BIGINT,
  content VARCHAR,
+ instrumentId int
+);
+
+CREATE TABLE IF NOT EXISTS additionalImages (
+ id int PRIMARY KEY auto_increment,
+ createdAt BIGINT,
+ url VARCHAR,
  instrumentId int
 );
