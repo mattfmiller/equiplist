@@ -50,6 +50,7 @@ S. As a user, I want to delete a guitar type association in case of error (post 
       "model": "{user_input}",
       "country": "{user_input}",
       "serialNumber": "{user_input}",
+      "description": "{user_input}",
       "year": {user_input},
       "weight": {user_input},
       "imageUrl": "{user_input}",
