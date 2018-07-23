@@ -1,7 +1,6 @@
 package dao;
 
 import models.Guitar;
-import models.Instrument;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,10 +14,12 @@ public interface GuitarDao {
     List<Guitar> getAllGuitars();
     List<Guitar> getAllGuitarsInCollection();
     List<Guitar> getAllGuitarsInWishlist();
-//    List<Guitar> getAllGuitarsByGuitarTypeId();
-//
-//    //UPDATE
+//    List<Guitar> getAllGuitarsByGuitarTypeId(int guitarTypeId);
+//    List<Guitar> search(String query);
+
+    //UPDATE
 //    void update(int id, HashMap<String, Object> updatedContent);
 
-
+    //DELETE
+//    void delteteById(int id);
 }
