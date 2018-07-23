@@ -175,23 +175,6 @@ public class Sql2oGuitarDao implements GuitarDao{
             for ( Guitar guitar : guitarsByModel ) {
                 searchedGuitars.add(guitar);
             }
-//            List<Artist> artistsByName = con.createQuery("SELECT * FROM artists WHERE name LIKE :nameQuery")
-//                    .addParameter("nameQuery", "%"+ query +"%")
-//                    .executeAndFetch(Artist.class);
-//            for (Artist artist : artistsByName) {
-//                int artistId = artist.getId();
-//                List<Integer> releaseIdsByArtistId = con.createQuery("SELECT releaseId FROM artists_releases WHERE artistId = :artistId")
-//                        .addParameter("artistId", artistId)
-//                        .executeAndFetch(Integer.class);
-//                for (int releaseId:releaseIdsByArtistId) {
-//                    List<Release> releasesByArtistsId = con.createQuery("SELECT * FROM releases WHERE id = :id")
-//                            .addParameter("id", releaseId)
-//                            .executeAndFetch(Release.class);
-//                    for (Release release:releasesByArtistsId) {
-//                        searchedReleases.add(release);
-//                    }
-//                }
-//            }
             return searchedGuitars;
         }
     }

@@ -14,7 +14,6 @@ public interface GuitarDao {
     List<Guitar> getAllGuitars();
     List<Guitar> getAllGuitarsInCollection();
     List<Guitar> getAllGuitarsInWishlist();
-//    List<Guitar> getAllGuitarsByGuitarTypeId(int guitarTypeId);
     List<Guitar> search(String query);
 
     //UPDATE

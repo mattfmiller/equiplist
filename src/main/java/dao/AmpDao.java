@@ -12,11 +12,11 @@ public interface AmpDao {
     List<Amp> getAllAmps();
     List<Amp> getAllAmpsInCollection();
     List<Amp> getAllAmpsInWishlist();
-//    List<Amp> search(String query);
+    List<Amp> search(String query);
 
     //UPDATE
-//    void update(int id, HashMap<String, Object> updatedContent);
+    void update(int id, Amp amp);
 
     //DELETE
-//    void delteteById(int id);
+    void delteteById(int id);
 }
