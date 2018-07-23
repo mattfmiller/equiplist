@@ -64,9 +64,7 @@ public class Sql2oGuitarDao implements GuitarDao{
     }
 
     @Override
-    public void update(int id, Guitar guitar
-//                       String manufacturer, String model, String country, String serialNumber, String description, int year, Double weight, String imageUrl, Boolean current, Boolean wishlist, double paid, double sold, String bodyWood, String finish, String color, String binding, String neckWood, String neckType, String neckProfile, String fretboardWood, Double fretboardRadius, int frets, String fretMaterial, String inlays, String nutMaterial, double nutWidth, double scaleLength, String neckPickup, String middlePickup, String bridgePickup, String volumePots, String tonePots, String capacitor, String tuners, String tunerButtons, String bridge, String tailpiece, String guitarSwitch, String knobs, String pickguard, String controls, String guitarCase
-    ) {
+    public void update(int id, Guitar guitar) {
         String instrumentSql = "UPDATE instruments SET (manufacturer, model, country, serialNumber, description, year, weight, imageUrl, current, wishlist, paid, sold) = (:manufacturer, :model, :country, :serialNumber, :description, :year, :weight, :imageUrl, :current, :wishlist, :paid, :sold) WHERE id = :id";
         String guitarSql = "UPDATE guitars SET(bodyWood, finish, color, binding, neckWood, neckType, neckProfile, fretboardWood, fretboardRadius, frets, fretMaterial, inlays, nutMaterial, nutWidth, scaleLength, neckPickup, middlePickup, bridgePickup, volumePots, tonePots, capacitor, tuners, tunerButtons, bridge, tailpiece, guitarSwitch, knobs, pickguard, controls, guitarCase) = (:bodyWood,  :finish, :color, :binding, :neckWood, :neckType, :neckProfile, :fretboardWood, :fretboardRadius, :frets, :fretMaterial, :inlays, :nutMaterial, :nutWidth, :scaleLength, :neckPickup, :middlePickup, :bridgePickup, :volumePots, :tonePots, :capacitor, :tuners, :tunerButtons, :bridge, :tailpiece, :guitarSwitch, :knobs, :pickguard, :controls, :guitarCase) WHERE id = :id";
         try(Connection con = sql2o.open()){
@@ -119,6 +117,22 @@ public class Sql2oGuitarDao implements GuitarDao{
                     .addParameter("id", id)
                     .executeUpdate();
         } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
+
+    @Override
+    public void delteteById(int id) {
+        String deleteInstrument = "DELETE from instruments WHERE id = :id";
+        String deleteGuitars = "DELETE from guitars WHERE id = :guitarId";
+        try(Connection con = sql2o.open()){
+            con.createQuery(deleteGuitars)
+                    .addParameter("guitarId", id)
+                    .executeUpdate();
+            con.createQuery(deleteInstrument)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
             System.out.println(ex);
         }
     }
