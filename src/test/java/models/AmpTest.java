@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class AmpTest {
 
     public Amp setupNewAmp() {
-        return new Amp ("Gibson", "Les Paul Custom", "USA", "xxx", 1999, 45.8, "www.test.url", true, false, 600.00, 0.00,"Guitar", "Head and Cab", 40, "Pine", "Blonde Tolex", "Ox Blood", 12, 13, 14, "Handwired", "2 Weber 10 inch", "2 6V6, 4 12AX7", "None", "None", "N/A", "Dog Bone", "White Cupcake", "Blue", " blackface fender bassman", "Fender with tail", "Fender Medium Tilt Legs", "rubber", "volume, treble, bass", "N/A");
+        return new Amp ("Gibson", "Les Paul Custom", "USA", "xxx", "old",1999, 45.8, "www.test.url", true, false, 600.00, 0.00,"Guitar", "Head and Cab", 40, "Pine", "Blonde Tolex", "Ox Blood", 12, 13, 14, "Handwired", "2 Weber 10 inch", "2 6V6, 4 12AX7", "None", "None", "N/A", "Dog Bone", "White Cupcake", "Blue", " blackface fender bassman", "Fender with tail", "Fender Medium Tilt Legs", "rubber", "volume, treble, bass", "N/A");
     }
 
     @Test

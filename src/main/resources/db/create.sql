@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS instruments (
  model VARCHAR,
  country VARCHAR,
  serialNumber VARCHAR,
+ description TEXT,
  year int,
  weight Decimal,
  imageUrl VARCHAR,

@@ -16,8 +16,8 @@ public class Pedal extends Instrument {
     private String controls;
     private String features;
 
-    public Pedal(String manufacturer, String model, String country, String serialNumber, int year, Double weight, String imageUrl, Boolean current, Boolean wishlist, double paid, double sold,  String type, String power, double width, double depth, double height, String electronics, Boolean trueBypass, int inputImpedance, int outputImpedance, String currentDraw, String controls, String features) {
-        super(manufacturer, model, country, serialNumber, year, weight, imageUrl, current, wishlist, paid, sold);
+    public Pedal(String manufacturer, String model, String country, String serialNumber, String desctiption, int year, Double weight, String imageUrl, Boolean current, Boolean wishlist, double paid, double sold,  String type, String power, double width, double depth, double height, String electronics, Boolean trueBypass, int inputImpedance, int outputImpedance, String currentDraw, String controls, String features) {
+        super(manufacturer, model, country, serialNumber, desctiption, year, weight, imageUrl, current, wishlist, paid, sold);
         this.type = type;
         this.power = power;
         this.width = width;

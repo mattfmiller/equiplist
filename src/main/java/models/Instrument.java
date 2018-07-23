@@ -8,6 +8,7 @@ public class Instrument {
     private String model;
     private String country;
     private String serialNumber;
+    private String description;
     private int year;
     private double weight;
     private String imageUrl;
@@ -16,11 +17,12 @@ public class Instrument {
     private double paid;
     private double sold;
 
-    public Instrument(String manufacturer, String model, String country, String serialNumber, int year, double weight, String imageUrl, Boolean current, Boolean wishlist, double paid, double sold) {
+    public Instrument(String manufacturer, String model, String country, String serialNumber, String description, int year, double weight, String imageUrl, Boolean current, Boolean wishlist, double paid, double sold) {
         this.manufacturer = manufacturer;
         this.model = model;
         this.country = country;
         this.serialNumber = serialNumber;
+        this.description = description;
         this.year = year;
         this.weight = weight;
         this.imageUrl = imageUrl;
@@ -126,6 +128,14 @@ public class Instrument {
         this.sold = sold;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -140,6 +150,7 @@ public class Instrument {
                 Objects.equals(model, that.model) &&
                 Objects.equals(country, that.country) &&
                 Objects.equals(serialNumber, that.serialNumber) &&
+                Objects.equals(description, that.description) &&
                 Objects.equals(imageUrl, that.imageUrl) &&
                 Objects.equals(current, that.current) &&
                 Objects.equals(wishlist, that.wishlist);
@@ -148,6 +159,6 @@ public class Instrument {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, manufacturer, model, country, serialNumber, year, weight, imageUrl, current, wishlist, paid, sold);
+        return Objects.hash(id, manufacturer, model, country, serialNumber, description, year, weight, imageUrl, current, wishlist, paid, sold);
     }
 }

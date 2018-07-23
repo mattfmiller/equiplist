@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class PedalTest {
 
     public Pedal setupNewPedal() {
-        return new Pedal ("Wampler", "Tumnus", "USA", "xxx", 2017, 1.4, "www.test.url", true, false, 135.00, 0.00,"Overdrive", "9-18V", 1.4, 1.1, 3.0, "PCB", false, 1000000, 100, "10-25 mA", "Volume, Treble, Gain", "Buffer");
+        return new Pedal ("Wampler", "Tumnus", "USA", "xxx", "old",2017, 1.4, "www.test.url", true, false, 135.00, 0.00,"Overdrive", "9-18V", 1.4, 1.1, 3.0, "PCB", false, 1000000, 100, "10-25 mA", "Volume, Treble, Gain", "Buffer");
     }
 
     @Test

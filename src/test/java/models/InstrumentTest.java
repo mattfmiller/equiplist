@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class InstrumentTest {
 
     public Instrument setupNewInstrument() {
-        return new Instrument ("Gibson", "Les Paul Custom", "USA", "xxx", 1999, 10.9,  "www.test.url", true, false, 1500, 0);
+        return new Instrument ("Gibson", "Les Paul Custom", "USA", "xxx", "Limited take on classic model", 1999, 10.9,  "www.test.url", true, false, 1500, 0);
     }
 
     @Test
@@ -143,4 +143,12 @@ public class InstrumentTest {
         testInstrument.setSold(1200);
         assertEquals(1200, testInstrument.getSold(), 0.01);
     }
+
+    @Test
+    public void setDescription() {
+        Instrument testInstrument = setupNewInstrument();
+        testInstrument.setDescription("Old");
+        assertEquals("Old", testInstrument.getDescription());
+    }
+
 }

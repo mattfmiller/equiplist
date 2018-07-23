@@ -28,8 +28,8 @@ public class Amp extends Instrument {
     private String controls;
     private String cover;
 
-    public Amp(String manufacturer, String model, String country, String serialNumber, int year, Double weight, String imageUrl, Boolean current, Boolean wishlist, double paid, double sold, String instrument, String type, int power, String cabinetWood, String finish, String grillCloth, int width, int depth, int height, String electronics, String speakers, String tubes, String reverb, String tremolo, String externalSpeaker, String handle, String knobs, String jewelLight, String controlPanel, String logo, String tiltLegs, String feet, String controls, String cover) {
-        super(manufacturer, model, country, serialNumber, year, weight, imageUrl, current, wishlist, paid, sold);
+    public Amp(String manufacturer, String model, String country, String serialNumber, String description, int year, Double weight, String imageUrl, Boolean current, Boolean wishlist, double paid, double sold, String instrument, String type, int power, String cabinetWood, String finish, String grillCloth, int width, int depth, int height, String electronics, String speakers, String tubes, String reverb, String tremolo, String externalSpeaker, String handle, String knobs, String jewelLight, String controlPanel, String logo, String tiltLegs, String feet, String controls, String cover) {
+        super(manufacturer, model, country, serialNumber, description, year, weight, imageUrl, current, wishlist, paid, sold);
         this.instrument = instrument;
         this.type = type;
         this.power = power;
