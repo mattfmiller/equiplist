@@ -172,7 +172,7 @@ public class App {
             additionalImageDao.clearAllAdditionalImagesByInstrumentId(guitarId);
             guitarDao.deleteById(guitarId);
             res.status(201);
-            return "success";
+            return "{\"message\":\"successfully deleted\"}";
         });
 
         //post: Edit amp instrument by id
@@ -191,7 +191,7 @@ public class App {
             additionalImageDao.clearAllAdditionalImagesByInstrumentId(ampId);
             ampDao.deleteById(ampId);
             res.status(201);
-            return "success";
+            return "{\"message\":\"successfully deleted\"}";
         });
 
         //post: Edit pedal instrument by id
@@ -210,7 +210,7 @@ public class App {
             additionalImageDao.clearAllAdditionalImagesByInstrumentId(pedalId);
             pedalDao.deleteById(pedalId);
             res.status(201);
-            return "success";
+            return "{\"message\":\"successfully deleted\"}";
         });
 
         //post: add new note
@@ -226,7 +226,7 @@ public class App {
             int noteId = Integer.parseInt(req.params("id"));
             noteDao.deleteById(noteId);
             res.status(201);
-            return "success";
+            return "{\"message\":\"successfully deleted\"}";
         });
 
         //post: Edit note by id
@@ -258,7 +258,7 @@ public class App {
             int additionalImageId = Integer.parseInt(req.params("id"));
             additionalImageDao.deleteById(additionalImageId);
             res.status(201);
-            return "success";
+            return "{\"message\":\"successfully deleted\"}";
         });
 
         //post: Edit additionalImage by id
