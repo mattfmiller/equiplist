@@ -3,11 +3,26 @@ import dao.*;
 import models.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+import filters.CorsFilter;
+import exceptions.ApiException;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static spark.Spark.*;
 
 public class App {
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
     public static void main(String[] args) {
+        port(getHerokuAssignedPort());
+        staticFileLocation("/public");
         Sql2oGuitarDao guitarDao;
         Sql2oAmpDao ampDao;
         Sql2oPedalDao pedalDao;
@@ -15,6 +30,10 @@ public class App {
         Sql2oAdditionalImageDao additionalImageDao;
         Connection conn;
         Gson gson = new Gson();
+        CorsFilter.apply();
+
+//        String connectionString = "jdbc:h2:~/equiplist.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+//        Sql2o sql2o = new Sql2o(connectionString, "", "");
 
         String connectionString = "jdbc:h2:~/equiplist.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
@@ -38,17 +57,28 @@ public class App {
         get("/guitars", "application/json", (req, res) -> {
             res.type("application/json");
             String query = req.queryParams("query");
-            if (query != null) {
-                return gson.toJson(guitarDao.search(query));
+            List<Guitar> guitarsInCollection = guitarDao.getAllGuitarsInCollection();
+            if (guitarsInCollection.size() > 0) {
+                if (query != null) {
+                    return gson.toJson(guitarDao.search(query));
+                } else {
+                    return gson.toJson(guitarDao.getAllGuitarsInCollection());
+                }
             } else {
-                return gson.toJson(guitarDao.getAllGuitarsInCollection());
+                return "{\"message\":\"I'm sorry, but no guitars are currently listed in the collection.\"}";
             }
         });
 
         //get: show guitars in wishlist
         get("/guitars/wishlist", "application/json", (req, res) -> {
             res.type("application/json");
-            return gson.toJson(guitarDao.getAllGuitarsInWishlist());
+            List<Guitar> guitarsInWishlist= guitarDao.getAllGuitarsInWishlist();
+            if (guitarsInWishlist.size() > 0 ) {
+                return gson.toJson(guitarDao.getAllGuitarsInWishlist());
+            } else {
+                return "{\"message\":\"I'm sorry, but no guitars are currently listed in the wishlist.\"}";
+            }
+
         });
 
         //post: add new amp instrument
@@ -63,17 +93,27 @@ public class App {
         get("/amps", "application/json", (req, res) -> {
             res.type("application/json");
             String query = req.queryParams("query");
-            if (query != null) {
-                return gson.toJson(ampDao.search(query));
+            List<Amp> ampsInCollection = ampDao.getAllAmpsInCollection();
+            if (ampsInCollection.size() > 0) {
+                if (query != null) {
+                    return gson.toJson(ampDao.search(query));
+                } else {
+                    return gson.toJson(ampDao.getAllAmpsInCollection());
+                }
             } else {
-                return gson.toJson(ampDao.getAllAmpsInCollection());
+                return "{\"message\":\"I'm sorry, but no amps are currently listed in the collection.\"}";
             }
         });
 
         //get: show amps in wishlist
         get("/amps/wishlist", "application/json", (req, res) -> {
             res.type("application/json");
-            return gson.toJson(ampDao.getAllAmpsInWishlist());
+            List<Amp> ampsInWishlist= ampDao.getAllAmpsInWishlist();
+            if (ampsInWishlist.size() > 0 ) {
+                return gson.toJson(ampDao.getAllAmpsInWishlist());
+            } else {
+                return "{\"message\":\"I'm sorry, but no amps are currently listed in the wishlist.\"}";
+            }
         });
 
         //post: add new pedal instrument
@@ -88,17 +128,27 @@ public class App {
         get("/pedals", "application/json", (req, res) -> {
             res.type("application/json");
             String query = req.queryParams("query");
-            if (query != null) {
-                return gson.toJson(pedalDao.search(query));
+            List<Pedal> pedalsInCollection = pedalDao.getAllPedalsInCollection();
+            if (pedalsInCollection.size() > 0) {
+                if (query != null) {
+                    return gson.toJson(pedalDao.search(query));
+                } else {
+                    return gson.toJson(pedalDao.getAllPedalsInCollection());
+                }
             } else {
-                return gson.toJson(pedalDao.getAllPedalsInCollection());
+                return "{\"message\":\"I'm sorry, but no pedals are currently listed in the collection.\"}";
             }
         });
 
         //get: show pedals in wishlist
         get("/pedals/wishlist", "application/json", (req, res) -> {
             res.type("application/json");
-            return gson.toJson(pedalDao.getAllPedalsInWishlist());
+            List<Pedal> pedalsInWishlist= pedalDao.getAllPedalsInWishlist();
+            if (pedalsInWishlist.size() > 0 ) {
+                return gson.toJson(pedalDao.getAllPedalsInWishlist());
+            } else {
+                return "{\"message\":\"I'm sorry, but no pedals are currently listed in the wishlist.\"}";
+            }
         });
 
         //post: Edit guitar instrument by id
@@ -220,6 +270,37 @@ public class App {
             int additionalImageId = Integer.parseInt(req.params("id"));
             res.type("application/json");
             return gson.toJson(additionalImageDao.getAllByInstrumentId(additionalImageId));
+        });
+
+        options("/*", (request, response) -> {
+            String accessControlRequestHeaders = request
+                    .headers("Access-Control-Request-Headers");
+            if (accessControlRequestHeaders != null) {
+                response.header("Access-Control-Allow-Headers",
+                        accessControlRequestHeaders);
+            }
+
+            String accessControlRequestMethod = request
+                    .headers("Access-Control-Request-Method");
+            if (accessControlRequestMethod != null) {
+                response.header("Access-Control-Allow-Methods",
+                        accessControlRequestMethod);
+            }
+            return "OK";
+        });
+
+        exception(ApiException.class, (exception, req, res) -> {
+            ApiException err = (ApiException) exception;
+            Map<String, Object> jsonMap = new HashMap<>();
+            jsonMap.put("status", err.getStatusCode());
+            jsonMap.put("errorMessage", err.getMessage());
+            res.type("application/json");
+            res.status(err.getStatusCode());
+            res.body(gson.toJson(jsonMap));
+        });
+
+        after((req, res) ->{
+            res.type("application/json");
         });
     }
 }
