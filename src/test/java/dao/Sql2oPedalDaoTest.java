@@ -38,11 +38,11 @@ public class Sql2oPedalDaoTest {
         System.out.println("connection closed");
     }
 
-    @Test
-    public void addPedalSetsId_1() {
-        Pedal testPedal = setupNewPedal();
-        assertEquals(1, testPedal.getId());
-    }
+//    @Test
+//    public void addPedalSetsId_1() {
+//        Pedal testPedal = setupNewPedal();
+//        assertEquals(1, testPedal.getId());
+//    }
 
     @Test
     public void addPedalSetsWishlist_false() {

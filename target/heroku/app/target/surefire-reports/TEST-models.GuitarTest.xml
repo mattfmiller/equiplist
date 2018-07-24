@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="62" failures="0" name="models.GuitarTest" time="0.005" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib"/>
+    <property name="java.vm.version" value="25.131-b11"/>
+    <property name="gopherProxySet" value="false"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/Guest/desktop/equiplist"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/Users/Guest/Desktop/equiplist"/>
+    <property name="java.runtime.version" value="1.8.0_131-b11"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/endorsed"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="java.io.tmpdir" value="/var/folders/zz/zyxvpxvq6csfxvn_n00000s4000069/T/"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="classworlds.conf" value="/usr/local/Cellar/maven/3.5.4/libexec/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/Guest/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="maven.conf" value="/usr/local/Cellar/maven/3.5.4/libexec/conf"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.11.6"/>
+    <property name="library.jansi.path" value="/usr/local/Cellar/maven/3.5.4/libexec/lib/jansi-native"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="user.home" value="/Users/Guest"/>
+    <property name="user.timezone" value="US/Pacific"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="Guest"/>
+    <property name="java.class.path" value="/usr/local/Cellar/maven/3.5.4/libexec/boot/plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher heroku:deploy"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_131"/>
+    <property name="java.ext.dirs" value="/Users/Guest/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/usr/local/Cellar/maven/3.5.4/libexec"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase classname="models.GuitarTest" name="getNeckWood_mahogany" time="0"/>
+  <testcase classname="models.GuitarTest" name="getGuitarCase_gibsonHardcase" time="0"/>
+  <testcase classname="models.GuitarTest" name="setBodyWood_ash" time="0"/>
+  <testcase classname="models.GuitarTest" name="setBridge_wraparound" time="0"/>
+  <testcase classname="models.GuitarTest" name="setGuitarSwitch" time="0"/>
+  <testcase classname="models.GuitarTest" name="setTonePots_1MCTS" time="0"/>
+  <testcase classname="models.GuitarTest" name="getFinish_lacquer" time="0"/>
+  <testcase classname="models.GuitarTest" name="setNeckPickup_goldFoil" time="0"/>
+  <testcase classname="models.GuitarTest" name="newGuitarInstantiatesCorrectly" time="0"/>
+  <testcase classname="models.GuitarTest" name="getNeckPickup_humbucker" time="0"/>
+  <testcase classname="models.GuitarTest" name="setInlays_dot" time="0"/>
+  <testcase classname="models.GuitarTest" name="setFretboardWood_rosewood" time="0"/>
+  <testcase classname="models.GuitarTest" name="getNeckType_set" time="0"/>
+  <testcase classname="models.GuitarTest" name="setControls_tone" time="0"/>
+  <testcase classname="models.GuitarTest" name="setFretMaterial_vintage" time="0"/>
+  <testcase classname="models.GuitarTest" name="setNeckWood_maple" time="0"/>
+  <testcase classname="models.GuitarTest" name="getScaleLength_2475" time="0"/>
+  <testcase classname="models.GuitarTest" name="setColor_white" time="0"/>
+  <testcase classname="models.GuitarTest" name="setFinish_poly" time="0.001"/>
+  <testcase classname="models.GuitarTest" name="getGuitarSwitch_3way" time="0"/>
+  <testcase classname="models.GuitarTest" name="setNeckType_boltOn" time="0"/>
+  <testcase classname="models.GuitarTest" name="getNeckProfile_1960sSlimTaper" time="0"/>
+  <testcase classname="models.GuitarTest" name="setBinding_singlePly" time="0"/>
+  <testcase classname="models.GuitarTest" name="getTuners_groverRotomatic" time="0"/>
+  <testcase classname="models.GuitarTest" name="setNutMaterial_plastic" time="0"/>
+  <testcase classname="models.GuitarTest" name="getFretboardRadius_12" time="0"/>
+  <testcase classname="models.GuitarTest" name="getInlays_motherOfPearlBlock" time="0"/>
+  <testcase classname="models.GuitarTest" name="getFretboardWood_ebony" time="0"/>
+  <testcase classname="models.GuitarTest" name="getControls_volumeTone" time="0"/>
+  <testcase classname="models.GuitarTest" name="getNutMaterial_bone" time="0"/>
+  <testcase classname="models.GuitarTest" name="getKnobs_bellhat" time="0"/>
+  <testcase classname="models.GuitarTest" name="getTunerButtons_nickelKeystone" time="0"/>
+  <testcase classname="models.GuitarTest" name="setScaleLength_255" time="0"/>
+  <testcase classname="models.GuitarTest" name="setCapacitor_orangeDrop022uf" time="0"/>
+  <testcase classname="models.GuitarTest" name="getTailpiece_bigsbyB7" time="0"/>
+  <testcase classname="models.GuitarTest" name="getBridge_roller" time="0"/>
+  <testcase classname="models.GuitarTest" name="setBridgePickup_tele" time="0"/>
+  <testcase classname="models.GuitarTest" name="getCapacitor_sprague022uf" time="0.001"/>
+  <testcase classname="models.GuitarTest" name="getTonePots_500KCTS" time="0"/>
+  <testcase classname="models.GuitarTest" name="setFrets_21" time="0"/>
+  <testcase classname="models.GuitarTest" name="getFrets_22" time="0"/>
+  <testcase classname="models.GuitarTest" name="setType_acoustic" time="0"/>
+  <testcase classname="models.GuitarTest" name="getColor_ebony" time="0"/>
+  <testcase classname="models.GuitarTest" name="setNutWidth_17075" time="0"/>
+  <testcase classname="models.GuitarTest" name="setGuitarCase_gigBag" time="0"/>
+  <testcase classname="models.GuitarTest" name="setTunerButtons_whiteButton" time="0"/>
+  <testcase classname="models.GuitarTest" name="setPickguard_3ply" time="0"/>
+  <testcase classname="models.GuitarTest" name="setTailpiece_stop" time="0"/>
+  <testcase classname="models.GuitarTest" name="setMiddlePickup_humbucker" time="0.003"/>
+  <testcase classname="models.GuitarTest" name="getVolumePots_500KCTS" time="0"/>
+  <testcase classname="models.GuitarTest" name="setVolumePots_250KCTS" time="0"/>
+  <testcase classname="models.GuitarTest" name="getBodyWood_mahogany" time="0"/>
+  <testcase classname="models.GuitarTest" name="getMiddlePickup_nA" time="0"/>
+  <testcase classname="models.GuitarTest" name="setTuners_kluson" time="0"/>
+  <testcase classname="models.GuitarTest" name="getBinding_5Ply" time="0"/>
+  <testcase classname="models.GuitarTest" name="setFretboardRadius_9" time="0"/>
+  <testcase classname="models.GuitarTest" name="getBridgePickup_humbucker" time="0"/>
+  <testcase classname="models.GuitarTest" name="getNutWidth_16875" time="0"/>
+  <testcase classname="models.GuitarTest" name="setNeckProfile_1950sFat" time="0"/>
+  <testcase classname="models.GuitarTest" name="getPickguard_5ply" time="0"/>
+  <testcase classname="models.GuitarTest" name="setKnobs_witchHat" time="0"/>
+  <testcase classname="models.GuitarTest" name="getFretMaterial_gibsonStyle" time="0"/>
+</testsuite>

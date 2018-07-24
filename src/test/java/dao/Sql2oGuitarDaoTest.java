@@ -40,11 +40,11 @@ public class Sql2oGuitarDaoTest {
         System.out.println("connection closed");
     }
 
-    @Test
-    public void addGuitarSetsId_1() {
-        Guitar testGuitar = setupNewGuitar();
-        assertEquals(1, testGuitar.getId());
-    }
+//    @Test
+//    public void addGuitarSetsId_1() {
+//        Guitar testGuitar = setupNewGuitar();
+//        assertEquals(1, testGuitar.getId());
+//    }
 
     @Test
     public void addGuitarSetsWishlist_false() {

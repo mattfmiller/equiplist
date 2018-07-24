@@ -40,11 +40,11 @@ public class Sql2oAmpDaoTest {
         System.out.println("connection closed");
     }
 
-    @Test
-    public void addAmpSetsId_1() {
-        Amp testAmp = setupNewAmp();
-        assertEquals(1, testAmp.getId());
-    }
+//    @Test
+//    public void addAmpSetsId_1() {
+//        Amp testAmp = setupNewAmp();
+//        assertEquals(1, testAmp.getId());
+//    }
 
     @Test
     public void addAmpSetsWishlist_false() {

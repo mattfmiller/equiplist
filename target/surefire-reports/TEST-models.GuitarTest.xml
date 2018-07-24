@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="62" failures="0" name="models.GuitarTest" time="0.002" errors="0" skipped="0">
+<testsuite tests="62" failures="0" name="models.GuitarTest" time="0.005" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib"/>
@@ -69,7 +69,7 @@
   <testcase classname="models.GuitarTest" name="setBodyWood_ash" time="0"/>
   <testcase classname="models.GuitarTest" name="setBridge_wraparound" time="0"/>
   <testcase classname="models.GuitarTest" name="setGuitarSwitch" time="0"/>
-  <testcase classname="models.GuitarTest" name="setTonePots_1MCTS" time="0.001"/>
+  <testcase classname="models.GuitarTest" name="setTonePots_1MCTS" time="0"/>
   <testcase classname="models.GuitarTest" name="getFinish_lacquer" time="0"/>
   <testcase classname="models.GuitarTest" name="setNeckPickup_goldFoil" time="0"/>
   <testcase classname="models.GuitarTest" name="newGuitarInstantiatesCorrectly" time="0"/>
@@ -82,7 +82,7 @@
   <testcase classname="models.GuitarTest" name="setNeckWood_maple" time="0"/>
   <testcase classname="models.GuitarTest" name="getScaleLength_2475" time="0"/>
   <testcase classname="models.GuitarTest" name="setColor_white" time="0"/>
-  <testcase classname="models.GuitarTest" name="setFinish_poly" time="0"/>
+  <testcase classname="models.GuitarTest" name="setFinish_poly" time="0.001"/>
   <testcase classname="models.GuitarTest" name="getGuitarSwitch_3way" time="0"/>
   <testcase classname="models.GuitarTest" name="setNeckType_boltOn" time="0"/>
   <testcase classname="models.GuitarTest" name="getNeckProfile_1960sSlimTaper" time="0"/>
@@ -101,7 +101,7 @@
   <testcase classname="models.GuitarTest" name="getTailpiece_bigsbyB7" time="0"/>
   <testcase classname="models.GuitarTest" name="getBridge_roller" time="0"/>
   <testcase classname="models.GuitarTest" name="setBridgePickup_tele" time="0"/>
-  <testcase classname="models.GuitarTest" name="getCapacitor_sprague022uf" time="0"/>
+  <testcase classname="models.GuitarTest" name="getCapacitor_sprague022uf" time="0.001"/>
   <testcase classname="models.GuitarTest" name="getTonePots_500KCTS" time="0"/>
   <testcase classname="models.GuitarTest" name="setFrets_21" time="0"/>
   <testcase classname="models.GuitarTest" name="getFrets_22" time="0"/>
@@ -112,9 +112,9 @@
   <testcase classname="models.GuitarTest" name="setTunerButtons_whiteButton" time="0"/>
   <testcase classname="models.GuitarTest" name="setPickguard_3ply" time="0"/>
   <testcase classname="models.GuitarTest" name="setTailpiece_stop" time="0"/>
-  <testcase classname="models.GuitarTest" name="setMiddlePickup_humbucker" time="0"/>
+  <testcase classname="models.GuitarTest" name="setMiddlePickup_humbucker" time="0.003"/>
   <testcase classname="models.GuitarTest" name="getVolumePots_500KCTS" time="0"/>
-  <testcase classname="models.GuitarTest" name="setVolumePots_250KCTS" time="0.001"/>
+  <testcase classname="models.GuitarTest" name="setVolumePots_250KCTS" time="0"/>
   <testcase classname="models.GuitarTest" name="getBodyWood_mahogany" time="0"/>
   <testcase classname="models.GuitarTest" name="getMiddlePickup_nA" time="0"/>
   <testcase classname="models.GuitarTest" name="setTuners_kluson" time="0"/>
