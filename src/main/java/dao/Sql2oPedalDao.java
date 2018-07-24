@@ -47,7 +47,7 @@ public class Sql2oPedalDao implements PedalDao{
     public List<Pedal> getAllPedalsInCollection() {
         try(Connection con = sql2o.open()){
             List<Pedal> allPedalsWithoutNull = con.createQuery("SELECT * FROM pedals JOIN instruments ON pedals.id = instruments.id WHERE wishlist = :collectionBoolean")
-                    .addParameter("collectionBoolean", "false")
+                    .addParameter("collectionBoolean", false)
                     .executeAndFetch(Pedal.class);
             allPedalsWithoutNull.removeAll(Collections.singleton(null));
             return allPedalsWithoutNull;
@@ -58,7 +58,7 @@ public class Sql2oPedalDao implements PedalDao{
     public List<Pedal> getAllPedalsInWishlist() {
         try(Connection con = sql2o.open()){
             List<Pedal> allPedalsWithoutNull = con.createQuery("SELECT * FROM pedals JOIN instruments ON pedals.id = instruments.id WHERE wishlist = :collectionBoolean")
-                    .addParameter("collectionBoolean", "true")
+                    .addParameter("collectionBoolean", true)
                     .executeAndFetch(Pedal.class);
             allPedalsWithoutNull.removeAll(Collections.singleton(null));
             return allPedalsWithoutNull;

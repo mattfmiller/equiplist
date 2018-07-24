@@ -47,7 +47,7 @@ public class Sql2oAmpDao implements AmpDao{
     public List<Amp> getAllAmpsInCollection() {
         try(Connection con = sql2o.open()){
             List<Amp> allAmpsWithoutNull = con.createQuery("SELECT * FROM amps JOIN instruments ON amps.id = instruments.id WHERE wishlist = :collectionBoolean")
-                    .addParameter("collectionBoolean", "false")
+                    .addParameter("collectionBoolean", false)
                     .executeAndFetch(Amp.class);
             allAmpsWithoutNull.removeAll(Collections.singleton(null));
             return allAmpsWithoutNull;
@@ -58,7 +58,7 @@ public class Sql2oAmpDao implements AmpDao{
     public List<Amp> getAllAmpsInWishlist() {
         try(Connection con = sql2o.open()){
             List<Amp> allAmpsWithoutNull = con.createQuery("SELECT * FROM amps JOIN instruments ON amps.id = instruments.id WHERE wishlist = :collectionBoolean")
-                    .addParameter("collectionBoolean", "true")
+                    .addParameter("collectionBoolean", true)
                     .executeAndFetch(Amp.class);
             allAmpsWithoutNull.removeAll(Collections.singleton(null));
             return allAmpsWithoutNull;

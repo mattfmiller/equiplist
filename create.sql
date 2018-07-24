@@ -2,7 +2,7 @@ CREATE DATABASE equiplist;
 \c equiplist;
 
 CREATE TABLE IF NOT EXISTS instruments (
- id int PRIMARY KEY auto_increment,
+ id SERIAL PRIMARY KEY,
  manufacturer VARCHAR,
  model VARCHAR,
  country VARCHAR,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS instruments (
 );
 
 CREATE TABLE IF NOT EXISTS guitars (
- id int,
+ id SERIAL,
  type VARCHAR,
  bodyWood VARCHAR,
  finish VARCHAR,
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS guitars (
 );
 
 CREATE TABLE IF NOT EXISTS amps (
- id int,
+ id SERIAL,
  instrument VARCHAR,
  type VARCHAR,
  power int,
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS amps (
 );
 
 CREATE TABLE IF NOT EXISTS pedals (
- id int,
+ id SERIAL,
  type VARCHAR,
  power VARCHAR,
  width Decimal,
@@ -100,14 +100,14 @@ CREATE TABLE IF NOT EXISTS pedals (
 );
 
 CREATE TABLE IF NOT EXISTS notes (
- id int PRIMARY KEY auto_increment,
+ id SERIAL PRIMARY KEY,
  createdAt BIGINT,
  content VARCHAR,
  instrumentId int
 );
 
 CREATE TABLE IF NOT EXISTS additionalImages (
- id int PRIMARY KEY auto_increment,
+ id SERIAL PRIMARY KEY,
  url VARCHAR,
  instrumentId int
 );
