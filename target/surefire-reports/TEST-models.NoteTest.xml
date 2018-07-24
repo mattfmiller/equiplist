@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="models.NoteTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="models.NoteTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib"/>
@@ -68,6 +68,6 @@
   <testcase classname="models.NoteTest" name="setInstrumentId" time="0"/>
   <testcase classname="models.NoteTest" name="setContent" time="0"/>
   <testcase classname="models.NoteTest" name="getContent_addedCustomNeckPlate" time="0"/>
-  <testcase classname="models.NoteTest" name="newNoteInstantiatesCorrectly" time="0.001"/>
+  <testcase classname="models.NoteTest" name="newNoteInstantiatesCorrectly" time="0"/>
   <testcase classname="models.NoteTest" name="setId_1" time="0"/>
 </testsuite>

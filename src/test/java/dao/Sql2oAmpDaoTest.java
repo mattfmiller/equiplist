@@ -12,10 +12,10 @@ import static org.junit.Assert.*;
 
 public class Sql2oAmpDaoTest {
     private static Connection conn;
-    private Sql2oAmpDao ampDao;
+    private static Sql2oAmpDao ampDao;
 
     @BeforeClass
-    public void setUp() throws Exception {
+    public static void setUp() throws Exception {
         String connectionString = "jdbc:postgresql://localhost:5432/equiplist_test";
         Sql2o sql2o = new Sql2o(connectionString, null, null);
         ampDao = new Sql2oAmpDao(sql2o);

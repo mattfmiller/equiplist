@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="dao.Sql2oNoteDaoTest" time="0.185" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="dao.Sql2oNoteDaoTest" time="0.196" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib"/>
@@ -64,10 +64,10 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="dao.Sql2oNoteDaoTest" name="update" time="0.045"/>
-  <testcase classname="dao.Sql2oNoteDaoTest" name="clearAllNotesByInstrumentId" time="0.022"/>
-  <testcase classname="dao.Sql2oNoteDaoTest" name="add_addingNoteSetsId" time="0.019"/>
-  <testcase classname="dao.Sql2oNoteDaoTest" name="clearAll" time="0.043"/>
-  <testcase classname="dao.Sql2oNoteDaoTest" name="getAllByInstrumentId" time="0.032"/>
-  <testcase classname="dao.Sql2oNoteDaoTest" name="deleteById" time="0.024"/>
+  <testcase classname="dao.Sql2oNoteDaoTest" name="update" time="0.044"/>
+  <testcase classname="dao.Sql2oNoteDaoTest" name="clearAllNotesByInstrumentId" time="0.023"/>
+  <testcase classname="dao.Sql2oNoteDaoTest" name="add_addingNoteSetsId" time="0.016"/>
+  <testcase classname="dao.Sql2oNoteDaoTest" name="clearAll" time="0.038"/>
+  <testcase classname="dao.Sql2oNoteDaoTest" name="getAllByInstrumentId" time="0.033"/>
+  <testcase classname="dao.Sql2oNoteDaoTest" name="deleteById" time="0.042"/>
 </testsuite>

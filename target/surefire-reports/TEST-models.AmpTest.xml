@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="25" failures="0" name="models.AmpTest" time="0.003" errors="0" skipped="0">
+<testsuite tests="25" failures="0" name="models.AmpTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib"/>
@@ -68,14 +68,14 @@
   <testcase classname="models.AmpTest" name="setJewelLight" time="0"/>
   <testcase classname="models.AmpTest" name="setElectronics" time="0"/>
   <testcase classname="models.AmpTest" name="setExternalSpeaker" time="0"/>
-  <testcase classname="models.AmpTest" name="setSpeakers" time="0.001"/>
+  <testcase classname="models.AmpTest" name="setSpeakers" time="0"/>
   <testcase classname="models.AmpTest" name="setTiltLegs" time="0"/>
   <testcase classname="models.AmpTest" name="setFinish" time="0"/>
   <testcase classname="models.AmpTest" name="setHandle" time="0"/>
   <testcase classname="models.AmpTest" name="setHeight" time="0"/>
   <testcase classname="models.AmpTest" name="setGrillCloth" time="0"/>
-  <testcase classname="models.AmpTest" name="setReverb" time="0.001"/>
-  <testcase classname="models.AmpTest" name="setControlPanel" time="0.001"/>
+  <testcase classname="models.AmpTest" name="setReverb" time="0"/>
+  <testcase classname="models.AmpTest" name="setControlPanel" time="0"/>
   <testcase classname="models.AmpTest" name="setCover" time="0"/>
   <testcase classname="models.AmpTest" name="setDepth" time="0"/>
   <testcase classname="models.AmpTest" name="setKnobs" time="0"/>
