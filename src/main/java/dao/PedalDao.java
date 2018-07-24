@@ -19,4 +19,5 @@ public interface PedalDao {
 
     //DELETE
     void deleteById(int id);
+    void clearAll();
 }

@@ -179,4 +179,15 @@ public class Sql2oGuitarDao implements GuitarDao{
             return searchedGuitars;
         }
     }
+
+    @Override
+    public void clearAll() {
+        String sql = "DELETE from guitars";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
 }

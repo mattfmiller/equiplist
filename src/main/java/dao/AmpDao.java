@@ -10,8 +10,11 @@ public interface AmpDao {
 
     //    //READ
     List<Amp> getAllAmps();
+
     List<Amp> getAllAmpsInCollection();
+
     List<Amp> getAllAmpsInWishlist();
+
     List<Amp> search(String query);
 
     //UPDATE
@@ -19,4 +22,6 @@ public interface AmpDao {
 
     //DELETE
     void deleteById(int id);
+
+    void clearAll();
 }

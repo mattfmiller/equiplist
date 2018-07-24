@@ -21,4 +21,5 @@ public interface GuitarDao {
 
     //DELETE
     void deleteById(int id);
+    void clearAll();
 }

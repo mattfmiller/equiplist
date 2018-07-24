@@ -2,9 +2,7 @@ package dao;
 
 import models.Amp;
 import models.Instrument;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
@@ -13,13 +11,13 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class Sql2oAmpDaoTest {
-    private Connection conn;
+    private static Connection conn;
     private Sql2oAmpDao ampDao;
 
-    @Before
+    @BeforeClass
     public void setUp() throws Exception {
         String connectionString = "jdbc:postgresql://localhost:5432/equiplist_test";
-        Sql2o sql2o = new Sql2o(connectionString, "", "");
+        Sql2o sql2o = new Sql2o(connectionString, null, null);
         ampDao = new Sql2oAmpDao(sql2o);
         conn = sql2o.open();
     }
@@ -32,7 +30,14 @@ public class Sql2oAmpDaoTest {
 
     @After
     public void tearDown() throws Exception {
+        System.out.println("clearing database");
+        ampDao.clearAll();
+    }
+
+    @AfterClass
+    public static void shutDown() throws Exception{
         conn.close();
+        System.out.println("connection closed");
     }
 
     @Test

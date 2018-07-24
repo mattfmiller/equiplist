@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="13" failures="0" name="models.PedalTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="13" failures="0" name="models.PedalTest" time="0.002" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib"/>
@@ -68,13 +68,13 @@
   <testcase classname="models.PedalTest" name="setTrueBypass" time="0"/>
   <testcase classname="models.PedalTest" name="setElectronics" time="0"/>
   <testcase classname="models.PedalTest" name="setOutputImpedance" time="0"/>
-  <testcase classname="models.PedalTest" name="setHeight" time="0.001"/>
-  <testcase classname="models.PedalTest" name="setInputImpedance" time="0"/>
+  <testcase classname="models.PedalTest" name="setHeight" time="0"/>
+  <testcase classname="models.PedalTest" name="setInputImpedance" time="0.001"/>
   <testcase classname="models.PedalTest" name="setDepth" time="0"/>
   <testcase classname="models.PedalTest" name="setPower" time="0"/>
   <testcase classname="models.PedalTest" name="setWidth" time="0"/>
   <testcase classname="models.PedalTest" name="setControls" time="0"/>
-  <testcase classname="models.PedalTest" name="newPedalInstantiatesCorrectly" time="0"/>
+  <testcase classname="models.PedalTest" name="newPedalInstantiatesCorrectly" time="0.001"/>
   <testcase classname="models.PedalTest" name="setFeatures" time="0"/>
   <testcase classname="models.PedalTest" name="setType" time="0"/>
 </testsuite>
