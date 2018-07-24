@@ -16,7 +16,7 @@ public class Sql2oAdditionalImageDaoTest {
 
     @BeforeClass
     public static void setUp() throws Exception {
-        String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        String connectionString = "jdbc:postgresql://localhost:5432/equiplist_test";
         Sql2o sql2o = new Sql2o(connectionString, null, null);
         additionalImageDao = new Sql2oAdditionalImageDao(sql2o);
         conn = sql2o.open();

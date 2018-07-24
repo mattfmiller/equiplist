@@ -18,7 +18,7 @@ public class Sql2oGuitarDaoTest {
 
     @Before
     public void setUp() throws Exception {
-        String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        String connectionString = "jdbc:postgresql://localhost:5432/equiplist_test";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         guitarDao = new Sql2oGuitarDao(sql2o);
         conn = sql2o.open();

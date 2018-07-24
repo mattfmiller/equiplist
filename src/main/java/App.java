@@ -13,12 +13,15 @@ import java.util.Map;
 import static spark.Spark.*;
 
 public class App {
+    private static boolean isProduction = false;
+
     static int getHerokuAssignedPort() {
         ProcessBuilder processBuilder = new ProcessBuilder();
         if (processBuilder.environment().get("PORT") != null) {
+            isProduction = true;
             return Integer.parseInt(processBuilder.environment().get("PORT"));
         }
-        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+        return 4567;
     }
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
@@ -31,12 +34,14 @@ public class App {
         Connection conn;
         Gson gson = new Gson();
         CorsFilter.apply();
-
-//        String connectionString = "jdbc:h2:~/equiplist.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-//        Sql2o sql2o = new Sql2o(connectionString, "", "");
-
-        String connectionString = "jdbc:h2:~/equiplist.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        Sql2o sql2o = new Sql2o(connectionString, "", "");
+        Sql2o sql2o;
+        if(isProduction) {
+            String connectionString = "jdbc:postgresql://ec2-54-83-37-223.compute-1.amazonaws.com:5432/d271e8a53ad9em";
+            sql2o = new Sql2o(connectionString,"pyvwqfyvgsopyb", "3f0f4a2b5d02d63521410f1b9b5939f75be335afd9d5ccdc0d3dca6357779eeb");
+        } else {
+            String connectionString = "jdbc:postgresql://localhost:5432/equiplist";
+            sql2o = new Sql2o(connectionString, null, null);
+        }
 
         guitarDao = new Sql2oGuitarDao(sql2o);
         ampDao = new Sql2oAmpDao(sql2o);
@@ -298,6 +303,8 @@ public class App {
             res.status(err.getStatusCode());
             res.body(gson.toJson(jsonMap));
         });
+
+        before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
 
         after((req, res) ->{
             res.type("application/json");
