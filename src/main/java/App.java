@@ -168,8 +168,8 @@ public class App {
 
         //post: Delete note by id
         post("/notes/:id/delete", "application/json", (req, res) -> {
-            int pedalId = Integer.parseInt(req.params("id"));
-            pedalDao.deleteById(pedalId);
+            int noteId = Integer.parseInt(req.params("id"));
+            noteDao.deleteById(noteId);
             res.status(201);
             return "success";
         });
@@ -200,8 +200,8 @@ public class App {
 
         //post: Delete additionalImage by id
         post("/additionalImages/:id/delete", "application/json", (req, res) -> {
-            int pedalId = Integer.parseInt(req.params("id"));
-            pedalDao.deleteById(pedalId);
+            int additionalImageId = Integer.parseInt(req.params("id"));
+            additionalImageDao.deleteById(additionalImageId);
             res.status(201);
             return "success";
         });

@@ -42,7 +42,7 @@ S. As a user, I want to delete a guitar type association in case of error (post 
 * Use a program such as postman to create API requests to localhost:4567
   * Get all guitars in collection: `get:` `/guitars`
   * Get all guitars in wishlist: `get:` `/guitars/wishlist`
-  * Get specific guitar: `get:` `/guitars/{guitar_id}`
+  <!-- * Get specific guitar: `get:` `/guitars/{guitar_id}` -->
   * Add a guitar: `post:` `/guitars/new`
     * As JSON of the format: <br>
     ```
@@ -92,84 +92,248 @@ S. As a user, I want to delete a guitar type association in case of error (post 
       "guitarCase":"{user_input}"
     }
     ```
-    * Get all amps in collection: `get:` `/amps`
-    * Get all amps in wishlist: `get:` `/amps/wishlist`
-    * Get specific amp: `get:` `/guitars/{amp_id}`
-    * Add an amp: `post:` `/amps/new`
-      * As JSON of the format: <br>
-      ```
-      {
-        "manufacturer": "{user_input}",
-        "model": "{user_input}",
-        "country": "{user_input}",
-        "serialNumber": "{user_input}",
-        "description": "{user_input}",
-        "year": {user_input},
-        "weight": {user_input},
-        "imageUrl": "{user_input}",
-        "current": {user_input},
-        "wishlist": {user_input},
-        "paid": {user_input},
-        "sold": {user_input},
-        "instrument": "{user_input}",
-        "type": "{user_input}",
-        "power": {user_input},
-        "cabinetWood": "{user_input}",
-        "finish": "{user_input}",
-        "grillCloth": "{user_input}",
-        "width": {user_input},
-        "depth": {user_input},
-        "height": {user_input},
-        "electronics": "{user_input}",
-        "speakers": "{user_input}",
-        "tubes": "{user_input}",
-        "reverb": "{user_input}",
-        "tremolo": "{user_input}",
-        "externalSpeaker": "{user_input}",
-        "handle": "{user_input}",
-        "knobs": "{user_input}",
-        "jewelLight": "{user_input}",
-        "controlPanel": "{user_input}",
-        "logo": "{user_input}",
-        "tiltLegs": "{user_input}",
-        "feet": "{user_input}",
-        "controls": "{user_input}",
-        "cover": "{user_input}"
-      }
-      ```
-      * Get all pedals in collection: `get:` `/pedals`
-      * Get all pedals in wishlist: `get:` `/pedals/wishlist`
-      * Get specific pedal: `get:` `/pedals/{pedal_id}`
-      * Add a pedal: `post:` `/pedals/new`
-        * As JSON of the format: <br>
-        ```
-        {
-          "manufacturer": "{user_input}",
-          "model": "{user_input}",
-          "country": "{user_input}",
-          "serialNumber": "{user_input}",
-          "description": "{user_input}",
-          "year": {user_input},
-          "weight": {user_input},
-          "imageUrl": "{user_input}",
-          "current": {user_input},
-          "wishlist": {user_input},
-          "paid": {user_input},
-          "sold": {user_input},
-          "type": "{user_input}",
-          "power": "{user_input}",
-          "width": {user_input},
-          "depth": {user_input},
-          "height": {user_input},
-          "electronics": "{user_input}",
-          "trueBypass": {user_input},
-          "inputImpedance": {user_input},
-          "outputImpedance": {user_input},
-          "currentDraw": "{user_input}",
-          "controls": "{user_input}",
-          "features": "{user_input}",
-        }
-        ```
+  * Edit a guitar: `post:` `/guitars/:id/edit`
+    * As JSON of the format: <br>
+    ```
+    {
+      "manufacturer": "{user_input}",
+      "model": "{user_input}",
+      "country": "{user_input}",
+      "serialNumber": "{user_input}",
+      "description": "{user_input}",
+      "year": {user_input},
+      "weight": {user_input},
+      "imageUrl": "{user_input}",
+      "current": {user_input},
+      "wishlist": {user_input},
+      "paid": {user_input},
+      "sold": {user_input},
+      "type": "{user_input}",
+      "bodyWood": "{user_input}",
+      "finish": "{user_input}",
+      "color": "{user_input}",
+      "binding": "{user_input}",
+      "neckWood": "{user_input}",
+      "neckType": "{user_input}",
+      "neckProfile": "{user_input}",
+      "fretboardWood": "{user_input}",
+      "fretboardRadius": {user_input},
+      "frets": {user_input},
+      "fretMaterial": "{user_input}",
+      "inlays": "{user_input}",
+      "nutMaterial": "{user_input}",
+      "nutWidth": {user_input},
+      "scaleLength": {user_input},
+      "neckPickup": "{user_input}",
+      "middlePickup": "{user_input}",
+      "bridgePickup": "{user_input}",
+      "volumePots": "{user_input}",
+      "tonePots": "{user_input}",
+      "capacitor": "{user_input}",
+      "tuners": "{user_input}",
+      "tunerButtons": "{user_input}",
+      "bridge": "{user_input}",
+      "tailpiece": "{user_input}",
+      "guitarSwitch": "{user_input}",
+      "knobs": "{user_input}",
+      "pickguard": "{user_input}",
+      "controls": "{user_input}",
+      "guitarCase":"{user_input}"
+    }
+    ```
+  * Delete a guitar: `post:` `/guitars/:id/delete`
+
+  * Get all amps in collection: `get:` `/amps`
+  * Get all amps in wishlist: `get:` `/amps/wishlist`
+  <!-- * Get specific amp: `get:` `/guitars/{amp_id}` -->
+  * Add an amp: `post:` `/amps/new`
+    * As JSON of the format: <br>
+    ```
+    {
+      "manufacturer": "{user_input}",
+      "model": "{user_input}",
+      "country": "{user_input}",
+      "serialNumber": "{user_input}",
+      "description": "{user_input}",
+      "year": {user_input},
+      "weight": {user_input},
+      "imageUrl": "{user_input}",
+      "current": {user_input},
+      "wishlist": {user_input},
+      "paid": {user_input},
+      "sold": {user_input},
+      "instrument": "{user_input}",
+      "type": "{user_input}",
+      "power": {user_input},
+      "cabinetWood": "{user_input}",
+      "finish": "{user_input}",
+      "grillCloth": "{user_input}",
+      "width": {user_input},
+      "depth": {user_input},
+      "height": {user_input},
+      "electronics": "{user_input}",
+      "speakers": "{user_input}",
+      "tubes": "{user_input}",
+      "reverb": "{user_input}",
+      "tremolo": "{user_input}",
+      "externalSpeaker": "{user_input}",
+      "handle": "{user_input}",
+      "knobs": "{user_input}",
+      "jewelLight": "{user_input}",
+      "controlPanel": "{user_input}",
+      "logo": "{user_input}",
+      "tiltLegs": "{user_input}",
+      "feet": "{user_input}",
+      "controls": "{user_input}",
+      "cover": "{user_input}"
+    }
+    ```
+  * Edit an amp: `post:` `/amps/:id/edit`
+    * As JSON of the format: <br>
+    ```
+    {
+      "manufacturer": "{user_input}",
+      "model": "{user_input}",
+      "country": "{user_input}",
+      "serialNumber": "{user_input}",
+      "description": "{user_input}",
+      "year": {user_input},
+      "weight": {user_input},
+      "imageUrl": "{user_input}",
+      "current": {user_input},
+      "wishlist": {user_input},
+      "paid": {user_input},
+      "sold": {user_input},
+      "instrument": "{user_input}",
+      "type": "{user_input}",
+      "power": {user_input},
+      "cabinetWood": "{user_input}",
+      "finish": "{user_input}",
+      "grillCloth": "{user_input}",
+      "width": {user_input},
+      "depth": {user_input},
+      "height": {user_input},
+      "electronics": "{user_input}",
+      "speakers": "{user_input}",
+      "tubes": "{user_input}",
+      "reverb": "{user_input}",
+      "tremolo": "{user_input}",
+      "externalSpeaker": "{user_input}",
+      "handle": "{user_input}",
+      "knobs": "{user_input}",
+      "jewelLight": "{user_input}",
+      "controlPanel": "{user_input}",
+      "logo": "{user_input}",
+      "tiltLegs": "{user_input}",
+      "feet": "{user_input}",
+      "controls": "{user_input}",
+      "cover": "{user_input}"
+    }
+    ```
+  * Delete an amp: `post:` `/amps/:id/delete`
+
+  * Get all pedals in collection: `get:` `/pedals`
+  * Get all pedals in wishlist: `get:` `/pedals/wishlist`
+  <!-- * Get specific pedal: `get:` `/pedals/{pedal_id}` -->
+  * Add a pedal: `post:` `/pedals/new`
+    * As JSON of the format: <br>
+    ```
+    {
+      "manufacturer": "{user_input}",
+      "model": "{user_input}",
+      "country": "{user_input}",
+      "serialNumber": "{user_input}",
+      "description": "{user_input}",
+      "year": {user_input},
+      "weight": {user_input},
+      "imageUrl": "{user_input}",
+      "current": {user_input},
+      "wishlist": {user_input},
+      "paid": {user_input},
+      "sold": {user_input},
+      "type": "{user_input}",
+      "power": "{user_input}",
+      "width": {user_input},
+      "depth": {user_input},
+      "height": {user_input},
+      "electronics": "{user_input}",
+      "trueBypass": {user_input},
+      "inputImpedance": {user_input},
+      "outputImpedance": {user_input},
+      "currentDraw": "{user_input}",
+      "controls": "{user_input}",
+      "features": "{user_input}"
+    }
+    ```
+  * Edit a pedal: `post:` `/pedals/:id/edit`
+    * As JSON of the format: <br>
+    ```
+    {
+      "manufacturer": "{user_input}",
+      "model": "{user_input}",
+      "country": "{user_input}",
+      "serialNumber": "{user_input}",
+      "description": "{user_input}",
+      "year": {user_input},
+      "weight": {user_input},
+      "imageUrl": "{user_input}",
+      "current": {user_input},
+      "wishlist": {user_input},
+      "paid": {user_input},
+      "sold": {user_input},
+      "type": "{user_input}",
+      "power": "{user_input}",
+      "width": {user_input},
+      "depth": {user_input},
+      "height": {user_input},
+      "electronics": "{user_input}",
+      "trueBypass": {user_input},
+      "inputImpedance": {user_input},
+      "outputImpedance": {user_input},
+      "currentDraw": "{user_input}",
+      "controls": "{user_input}",
+      "features": "{user_input}"
+    }
+    ```
+  * Delete a pedal: `post:` `/pedals/:id/delete`
+
+  * Add a note: `post:` `/notes/new`
+    * As JSON of the format: <br>
+    ```
+    {
+      "content": "{user_input}",
+      "instrumentId": {user_input}
+    }
+    ```
+  * Get notes by instrument id: `get:` `/instruments/:id/notes`
+  * Edit a note: `post:` `/notes/:id/edit`
+    * As JSON of the format: <br>
+    ```
+    {
+      "content": "{user_input}",
+      "instrumentId": {user_input}
+    }
+    ```
+  * Delete a note: `post:` `/notes/:id/delete`
+
+  * Add an additional image: `post:` `/additionalImages/new`
+    * As JSON of the format: <br>
+    ```
+    {
+      "url": "{user_input}",
+      "instrumentId": {user_input}
+    }
+    ```
+  * Get notes by instrument id: `get:` `/instruments/:id/notes`
+  * Edit a note: `post:` `/additionalImages/:id/edit`
+    * As JSON of the format: <br>
+    ```
+    {
+      "url": "{user_input}",
+      "instrumentId": {user_input}
+    }
+    ```
+  * Delete a note: `post:` `/additionalImages/:id/delete`
 
 ## Known Bugs
 

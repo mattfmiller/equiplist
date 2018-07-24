@@ -68,7 +68,7 @@ public class Sql2oAmpDao implements AmpDao{
     @Override
     public void update(int id, Amp amp) {
         String instrumentSql = "UPDATE instruments SET (manufacturer, model, country, serialNumber, description, year, weight, imageUrl, current, wishlist, paid, sold) = (:manufacturer, :model, :country, :serialNumber, :description, :year, :weight, :imageUrl, :current, :wishlist, :paid, :sold) WHERE id = :id";
-        String ampSql = "UPDATE amps SET(instrument, type, power, cabinetWood, finish, grillCloth, width, depth, height, electronics, speakers, tubes, reverb, tremolo, externalSpeaker, handle, knobs, jewelLight, controlPanel, logo, tiltLegs, feet, controls, cover) = (:id, :instrument,  :type, :power, :cabinetWood, :finish, :grillCloth, :width, :depth, :height, :electronics, :speakers, :tubes, :reverb, :tremolo, :externalSpeaker, :handle, :knobs, :jewelLight, :controlPanel, :logo, :tiltLegs, :feet, :controls, :cover) WHERE id = :id";
+        String ampSql = "UPDATE amps SET(instrument, type, power, cabinetWood, finish, grillCloth, width, depth, height, electronics, speakers, tubes, reverb, tremolo, externalSpeaker, handle, knobs, jewelLight, controlPanel, logo, tiltLegs, feet, controls, cover) = (:instrument, :type, :power, :cabinetWood, :finish, :grillCloth, :width, :depth, :height, :electronics, :speakers, :tubes, :reverb, :tremolo, :externalSpeaker, :handle, :knobs, :jewelLight, :controlPanel, :logo, :tiltLegs, :feet, :controls, :cover) WHERE id = :id";
         try(Connection con = sql2o.open()){
             con.createQuery(instrumentSql)
                     .addParameter("manufacturer", amp.getManufacturer())
@@ -171,6 +171,5 @@ public class Sql2oAmpDao implements AmpDao{
             }
             return searchedAmps;
         }
-
     }
 }
