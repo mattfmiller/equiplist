@@ -18,5 +18,5 @@ public interface AmpDao {
     void update(int id, Amp amp);
 
     //DELETE
-    void delteteById(int id);
+    void deleteById(int id);
 }

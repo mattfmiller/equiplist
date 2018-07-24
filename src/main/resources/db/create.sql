@@ -1,10 +1,5 @@
 SET MODE PostgreSQL;
 
-CREATE TABLE IF NOT EXISTS guitarTypes (
- id int PRIMARY KEY auto_increment,
- name VARCHAR,
-);
-
 CREATE TABLE IF NOT EXISTS instruments (
  id int PRIMARY KEY auto_increment,
  manufacturer VARCHAR,

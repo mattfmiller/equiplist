@@ -125,7 +125,7 @@ public class Sql2oGuitarDao implements GuitarDao{
     }
 
     @Override
-    public void delteteById(int id) {
+    public void deleteById(int id) {
         String deleteInstrument = "DELETE from instruments WHERE id = :id";
         String deleteGuitars = "DELETE from guitars WHERE id = :guitarId";
         try(Connection con = sql2o.open()){

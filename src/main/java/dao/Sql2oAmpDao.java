@@ -118,7 +118,7 @@ public class Sql2oAmpDao implements AmpDao{
     }
 
     @Override
-    public void delteteById(int id) {
+    public void deleteById(int id) {
         String deleteInstrument = "DELETE from instruments WHERE id = :id";
         String deleteAmps = "DELETE from amps WHERE id = :ampId";
         try(Connection con = sql2o.open()){

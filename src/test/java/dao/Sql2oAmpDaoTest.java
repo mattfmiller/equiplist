@@ -97,7 +97,7 @@ public class Sql2oAmpDaoTest {
         Amp testAmp = setupNewAmp();
         Amp testAmp2 = new Amp ("Fender", "Bassman", "USA", "xxx", "old",1999, 45.8, "www.test.url", true, false, 600.00, 0.00,"Guitar", "Head and Cab", 40, "Pine", "Blonde Tolex", "Ox Blood", 12, 13, 14, "Handwired", "2 Weber 10 inch", "2 6V6, 4 12AX7", "None", "None", "N/A", "Dog Bone", "White Cupcake", "Blue", " blackface fender bassman", "Fender with tail", "Fender Medium Tilt Legs", "rubber", "volume, treble, bass", "N/A");
         ampDao.add(testAmp2);
-        ampDao.delteteById(testAmp.getId());
+        ampDao.deleteById(testAmp.getId());
         assertEquals(1, ampDao.getAllAmpsInCollection().size());
     }
 

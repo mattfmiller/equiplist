@@ -20,5 +20,5 @@ public interface GuitarDao {
     void update(int id, Guitar guitar);
 
     //DELETE
-    void delteteById(int id);
+    void deleteById(int id);
 }

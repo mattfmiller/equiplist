@@ -95,7 +95,7 @@ public class Sql2oPedalDaoTest {
         Pedal testPedal = setupNewPedal();
         Pedal testPedal2 = new Pedal ("Wampler", "Tumnus", "USA", "xxx", "old",2017, 1.4, "www.test.url", true, false, 135.00, 0.00,"Overdrive", "9-18V", 1.4, 1.1, 3.0, "PCB", false, 1000000, 100, "10-25 mA", "Volume, Treble, Gain", "Buffer");
         pedalDao.add(testPedal2);
-        pedalDao.delteteById(testPedal.getId());
+        pedalDao.deleteById(testPedal.getId());
         assertEquals(1, pedalDao.getAllPedalsInCollection().size());
     }
 

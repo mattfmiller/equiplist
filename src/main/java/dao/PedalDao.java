@@ -18,5 +18,5 @@ public interface PedalDao {
     void update(int id, Pedal pedal);
 
     //DELETE
-    void delteteById(int id);
+    void deleteById(int id);
 }

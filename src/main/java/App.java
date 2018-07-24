@@ -4,10 +4,6 @@ import models.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
-
-import java.util.HashMap;
-import java.util.Map;
-
 import static spark.Spark.*;
 
 public class App {
@@ -117,7 +113,9 @@ public class App {
         //post: Delete guitar instrument by id
         post("/guitars/:id/delete", "application/json", (req, res) -> {
             int guitarId = Integer.parseInt(req.params("id"));
-            guitarDao.delteteById(guitarId);
+            noteDao.clearAllNotesByInstrumentId(guitarId);
+            additionalImageDao.clearAllAdditionalImagesByInstrumentId(guitarId);
+            guitarDao.deleteById(guitarId);
             res.status(201);
             return "success";
         });
@@ -134,7 +132,9 @@ public class App {
         //post: Delete amp instrument by id
         post("/amps/:id/delete", "application/json", (req, res) -> {
             int ampId = Integer.parseInt(req.params("id"));
-            ampDao.delteteById(ampId);
+            noteDao.clearAllNotesByInstrumentId(ampId);
+            additionalImageDao.clearAllAdditionalImagesByInstrumentId(ampId);
+            ampDao.deleteById(ampId);
             res.status(201);
             return "success";
         });
@@ -151,7 +151,9 @@ public class App {
         //post: Delete pedal instrument by id
         post("/pedals/:id/delete", "application/json", (req, res) -> {
             int pedalId = Integer.parseInt(req.params("id"));
-            pedalDao.delteteById(pedalId);
+            noteDao.clearAllNotesByInstrumentId(pedalId);
+            additionalImageDao.clearAllAdditionalImagesByInstrumentId(pedalId);
+            pedalDao.deleteById(pedalId);
             res.status(201);
             return "success";
         });
@@ -167,7 +169,7 @@ public class App {
         //post: Delete note by id
         post("/notes/:id/delete", "application/json", (req, res) -> {
             int pedalId = Integer.parseInt(req.params("id"));
-            pedalDao.delteteById(pedalId);
+            pedalDao.deleteById(pedalId);
             res.status(201);
             return "success";
         });
@@ -199,7 +201,7 @@ public class App {
         //post: Delete additionalImage by id
         post("/additionalImages/:id/delete", "application/json", (req, res) -> {
             int pedalId = Integer.parseInt(req.params("id"));
-            pedalDao.delteteById(pedalId);
+            pedalDao.deleteById(pedalId);
             res.status(201);
             return "success";
         });

@@ -68,7 +68,7 @@ public class Sql2oPedalDao implements PedalDao{
     @Override
     public void update(int id, Pedal pedal) {
         String instrumentSql = "UPDATE instruments SET (manufacturer, model, country, serialNumber, description, year, weight, imageUrl, current, wishlist, paid, sold) = (:manufacturer, :model, :country, :serialNumber, :description, :year, :weight, :imageUrl, :current, :wishlist, :paid, :sold) WHERE id = :id";
-        String pedalSql = "UPDATE pedals SET(type, power, trueBypass, width, depth, height, electronics, inputImpedance, outputImpedance, currentDraw, features, controls) = (:id, :type, :power, :trueBypass, :width, :depth, :height, :electronics, :inputImpedance, :outputImpedance, :currentDraw, :features, :controls) WHERE id = :id";
+        String pedalSql = "UPDATE pedals SET(type, power, trueBypass, width, depth, height, electronics, inputImpedance, outputImpedance, currentDraw, features, controls) = (:type, :power, :trueBypass, :width, :depth, :height, :electronics, :inputImpedance, :outputImpedance, :currentDraw, :features, :controls) WHERE id = :id";
         try(Connection con = sql2o.open()){
             con.createQuery(instrumentSql)
                     .addParameter("manufacturer", pedal.getManufacturer())
@@ -87,8 +87,8 @@ public class Sql2oPedalDao implements PedalDao{
                     .executeUpdate();
             con.createQuery(pedalSql)
                     .addParameter("type", pedal.getType())
-                    .addParameter("trueBypass", pedal.getTrueBypass())
                     .addParameter("power", pedal.getPower())
+                    .addParameter("trueBypass", pedal.getTrueBypass())
                     .addParameter("inputImpedance", pedal.getInputImpedance())
                     .addParameter("outputImpedance", pedal.getOutputImpedance())
                     .addParameter("currentDraw", pedal.getCurrentDraw())
@@ -106,7 +106,7 @@ public class Sql2oPedalDao implements PedalDao{
     }
 
     @Override
-    public void delteteById(int id) {
+    public void deleteById(int id) {
         String deleteInstrument = "DELETE from instruments WHERE id = :id";
         String deletePedals = "DELETE from pedals WHERE id = :pedalId";
         try(Connection con = sql2o.open()){
